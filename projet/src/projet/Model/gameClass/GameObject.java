@@ -1,11 +1,12 @@
 package projet.Model.gameClass;
 
-import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 public abstract class GameObject {
-    private Image sprite;
+    private ImageIcon sprite;
 
-    public GameObject(Image sprite) {
+    public GameObject(ImageIcon sprite) {
         this.sprite = sprite;
     }
 
