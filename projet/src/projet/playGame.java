@@ -5,6 +5,9 @@
  */
 package projet;
 
+import projet.Controller.GameController;
+import projet.View.MainVue;
+
 /**
  *
  * @author mallou
@@ -16,6 +19,8 @@ public class playGame {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GameController gc = new GameController();
+        MainVue fenetre = new MainVue();
     }
     
 }
