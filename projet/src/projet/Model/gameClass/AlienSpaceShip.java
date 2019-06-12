@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
  */
 public class AlienSpaceShip extends Alien{
     
-    public AlienSpaceShip(double x, double y, int speed, ImageIcon sprite) {
-        super(x, y, speed, sprite);
+    public AlienSpaceShip(double x, double y, int speed, int points, ImageIcon sprite) {
+        super(x, y, speed, points, sprite);
     }
     
 }

@@ -14,8 +14,9 @@ import javax.swing.ImageIcon;
 public class Alien extends TouchableGameObject{
     private int points;
     
-    public Alien(double x, double y, int speed, ImageIcon sprite) {
+    public Alien(double x, double y, int speed, int points, ImageIcon sprite) {
         super(x, y, speed, sprite);
+        this.points = points;
     }
 
     /**
