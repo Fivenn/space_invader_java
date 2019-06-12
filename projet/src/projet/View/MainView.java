@@ -5,7 +5,7 @@
  */
 package projet.View;
 
-import java.awt.HeadlessException;
+import java.awt.*;
 import javax.swing.JFrame;
 
 /**
@@ -15,13 +15,19 @@ import javax.swing.JFrame;
 public class MainView extends JFrame{
 
     public MainView() throws HeadlessException {
-        add(new PlaygroundArea());
+        InformationAreaView informationAreaView = new InformationAreaView();
+        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView();
+
+        this.setLayout(new BorderLayout());
+
+        this.add(playgroundAreaView, BorderLayout.WEST);
+        this.add(informationAreaView, BorderLayout.EAST);
 
         setResizable(true);
         pack();
 
         setTitle("Space Invaders");
-        setSize(1100, 800);
+        setSize(1150, 1000);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
