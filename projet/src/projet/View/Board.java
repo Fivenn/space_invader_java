@@ -38,7 +38,7 @@ public class Board extends JPanel
 
     private void loadImage() {
 
-        ImageIcon ii = new ImageIcon("src/resources/star.png");
+        ImageIcon ii = new ImageIcon("projet/src/projet/Ressources/invader.png");
         star = ii.getImage();
     }
 

@@ -6,7 +6,6 @@
 package projet.View;
 
 import java.awt.EventQueue;
-import java.awt.Panel;
 import javax.swing.JFrame;
 
 public class SwingTimerEx extends JFrame {
