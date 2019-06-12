@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Alien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/playGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/playGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/DynamicGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/DynamicGameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/TouchableGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/TouchableGameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/MainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/SwingTimerEx.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/playGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/playGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_space_invaders/shot.gif" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Ressources/shot.gif" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,35 +27,50 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/Alien.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <element signature="e#535#536#0" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#660#661#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#452#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundArea.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/IdeaProjects/tp3_swing/src/Convertisseur.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-295">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$USER_HOME$/IdeaProjects/tp3_swing/src/Convertisseur.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-75">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,17 +86,25 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/projet/src/projet/View/SwingTimerEx.java" />
-        <option value="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/Board.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Alien.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/DynamicGameObject.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Building.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/TouchableGameObject.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/View/MainVue.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/playGame.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/View/MainView.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/View/PlaygroundArea.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -104,6 +136,14 @@
               <item name="projet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="projet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="space_invaders_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="space_invaders_project" type="462c0819:PsiDirectoryNode" />
+              <item name="projet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="space_invaders_project" type="b2602c69:ProjectViewProjectNode" />
@@ -161,7 +201,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SwingTimerEx">
+  <component name="RunManager" selected="Application.playGame">
     <configuration name="SwingTimerEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projet.View.SwingTimerEx" />
       <module name="space_invaders_project" />
@@ -190,8 +230,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SwingTimerEx" />
         <item itemvalue="Application.playGame" />
+        <item itemvalue="Application.SwingTimerEx" />
       </list>
     </recent_temporary>
   </component>
@@ -207,17 +247,18 @@
       <updated>1559894965136</updated>
       <workItem from="1559894966325" duration="387000" />
       <workItem from="1560088049944" duration="156000" />
+      <workItem from="1560365418997" duration="2394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1272000" />
+    <option name="totallyTimeSpent" value="3783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22100122" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22344323" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -254,22 +295,75 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Controller/ControllerTmp.java" />
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/ControllerTmp.java" />
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/playGame.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Ressources/shot.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/Building.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="270">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/SwingTimerEx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
           <folding>
-            <element signature="e#0#420#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainVue.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/playGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/TouchableGameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/SpaceShip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+          <folding>
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -281,56 +375,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/SwingTimerEx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/Building.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/Board.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        <state relative-caret-position="180">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/DynamicGameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="342">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/Alien.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/IdeaProjects/tp3_swing/src/Convertisseur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
           <folding>
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="270">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
           <folding>
-            <element signature="e#0#452#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

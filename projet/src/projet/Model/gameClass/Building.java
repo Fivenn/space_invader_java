@@ -18,5 +18,4 @@ public class Building extends GameObject{
         super(sprite);
         this.lifePoints = lifePoints;
     }
-    
 }

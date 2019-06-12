@@ -19,6 +19,5 @@ public abstract class TouchableGameObject extends DynamicGameObject{
     }
 
     private void shoot(){
-        this.bullet = new Bullet(this.x,this.y,this.speed);
     }
 }

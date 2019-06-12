@@ -19,5 +19,9 @@ public class DynamicGameObject extends GameObject {
         this.y = y;
         this.speed = speed;
     }
+
+    public void move() {
+
+    }
     
 }

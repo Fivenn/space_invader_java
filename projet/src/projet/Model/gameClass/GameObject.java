@@ -1,6 +1,5 @@
 package projet.Model.gameClass;
 
-
 import javax.swing.ImageIcon;
 
 public abstract class GameObject {
