@@ -18,10 +18,7 @@ public class MainView extends JFrame{
         InformationAreaView informationAreaView = new InformationAreaView();
         PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView();
 
-        
-        
         this.setLayout(new BorderLayout());
-        
         this.add(playgroundAreaView, BorderLayout.WEST);
         this.add(informationAreaView, BorderLayout.EAST);
 

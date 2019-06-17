@@ -45,7 +45,7 @@ public class InformationAreaView extends JPanel {
         quitButton.setBackground(Color.black);
         quitButton.setForeground(Color.red);
         quitButton.setOpaque(true);
-        quitButton.setOpaque(false);
+        quitButton.setBorderPainted(false);
         
         panelHelpAndQuit.add(pauseButton);
         panelHelpAndQuit.add(new JLabel());
