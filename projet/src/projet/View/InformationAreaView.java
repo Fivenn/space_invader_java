@@ -29,21 +29,28 @@ public class InformationAreaView extends JPanel {
         
         newGameButton.setBackground(Color.black);
         newGameButton.setForeground(Color.white);
-        
+        newGameButton.setOpaque(true);
+        newGameButton.setBorderPainted(false);
+
         pauseButton.setBackground(Color.black);
-        pauseButton.setForeground(Color.white);        
+        pauseButton.setForeground(Color.white);
+        pauseButton.setOpaque(true);
+        pauseButton.setBorderPainted(false);
         
         helpButton.setBackground(Color.black);
-        helpButton.setForeground(Color.white);      
+        helpButton.setForeground(Color.white);
+        helpButton.setOpaque(true);
+        helpButton.setBorderPainted(false);
 
         quitButton.setBackground(Color.black);
-        quitButton.setForeground(Color.red);              
+        quitButton.setForeground(Color.red);
+        quitButton.setOpaque(true);
+        quitButton.setOpaque(false);
         
         panelHelpAndQuit.add(pauseButton);
         panelHelpAndQuit.add(new JLabel());
         panelHelpAndQuit.add(helpButton);
         panelHelpAndQuit.add(quitButton);
-        
         
         this.add(panelHelpAndQuit,NORTH);
         this.add(new LeaderBoardView(),CENTER);
