@@ -21,14 +21,14 @@ public class MainView extends JFrame{
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
 
-        InformationAreaView informationAreaView = new InformationAreaView();
+        InformationAreaView informationAreaView = new InformationAreaView(this.gameController);
         PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(this.gameController);
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
         this.add(informationAreaView, BorderLayout.EAST);
 
-        setResizable(true);
+        setResizable(false);
         pack();
 
         setTitle("Space Invaders");

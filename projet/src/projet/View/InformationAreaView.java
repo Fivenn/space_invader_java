@@ -1,14 +1,21 @@
 package projet.View;
 
+import projet.Controller.GameController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
-    public InformationAreaView() {
-        
+    private GameController gameController;
+
+    public InformationAreaView(GameController gameController) {
+        this.gameController = gameController;
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
         this.setPreferredSize(new Dimension(230, 900));
@@ -46,6 +53,12 @@ public class InformationAreaView extends JPanel {
         quitButton.setForeground(Color.red);
         quitButton.setOpaque(true);
         quitButton.setBorderPainted(false);
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         
         panelHelpAndQuit.add(pauseButton);
         panelHelpAndQuit.add(new JLabel());
@@ -53,11 +66,7 @@ public class InformationAreaView extends JPanel {
         panelHelpAndQuit.add(quitButton);
         
         this.add(panelHelpAndQuit,NORTH);
-        this.add(new LeaderBoardView(),CENTER);
-        
+        //this.add(new LeaderBoardView(this.gameController),CENTER);
         this.add(newGameButton,SOUTH);
-        
-
-
     }
 }

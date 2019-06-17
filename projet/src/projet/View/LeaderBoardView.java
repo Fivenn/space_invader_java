@@ -5,6 +5,8 @@
  */
 package projet.View;
 
+import projet.Controller.GameController;
+
 import java.awt.BorderLayout;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
@@ -19,12 +21,15 @@ import javax.swing.JPanel;
  * @author mallou
  */
 public class LeaderBoardView extends JPanel{
-    public LeaderBoardView() {
+    private GameController gameController;
+
+    public LeaderBoardView(GameController gameController) {
+        this.gameController = gameController;
         this.setPreferredSize(new Dimension(235, 600));
         this.setLayout(new BorderLayout());
         this.setOpaque(true);
         JPanel titreTableau = new JPanel(new GridLayout(1,2));
-        
+
         //titreTableau.add(new JLabel("Pseudo"));
         //titreTableau.add(new JLabel("Score"));
         this.add(titreTableau,CENTER);

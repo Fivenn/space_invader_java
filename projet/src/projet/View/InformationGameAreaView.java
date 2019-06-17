@@ -13,6 +13,7 @@ public class InformationGameAreaView extends JPanel {
 
     public InformationGameAreaView(GameController gameController) {
         this.gameController = gameController;
+        this.setBorder(BorderFactory.createEmptyBorder(0, 7,0, 0));
         points = gameController.getPlayer().getPoints();
         lifePoints = gameController.getPlayer().getLifePoints();
         pseudo = gameController.getPlayer().getPseudo();
@@ -22,9 +23,9 @@ public class InformationGameAreaView extends JPanel {
         this.setPreferredSize(new Dimension(900, 50));
         this.setLayout(new GridLayout(1,3));
 
-        JLabel scoreLabel = new JLabel("Score: ");
-        JLabel lifeLabel = new JLabel("Life: ");
-        JLabel highScoreLabel = new JLabel("High Score: ");
+        JLabel scoreLabel = new JLabel("Score: "+points);
+        JLabel lifeLabel = new JLabel("Life: "+lifePoints);
+        JLabel pseudoPlayerLabel = new JLabel(pseudo);
 
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(30f));
@@ -32,12 +33,12 @@ public class InformationGameAreaView extends JPanel {
         lifeLabel.setForeground(Color.WHITE);
         lifeLabel.setFont(lifeLabel.getFont().deriveFont(30f));
 
-        highScoreLabel.setForeground(Color.white);
-        highScoreLabel.setFont(highScoreLabel.getFont().deriveFont(30f));
+        pseudoPlayerLabel.setForeground(Color.white);
+        pseudoPlayerLabel.setFont(pseudoPlayerLabel.getFont().deriveFont(30f));
 
         this.add(scoreLabel);
         this.add(lifeLabel);
-        this.add(highScoreLabel);
+        this.add(pseudoPlayerLabel);
 
     }
 }
