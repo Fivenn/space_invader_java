@@ -4,14 +4,12 @@ package projet.Controller;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 import javax.swing.ImageIcon;
 // import projet.Model.gameClass.Player;
 import projet.Model.gameClass.Alien;
 import projet.Model.gameClass.AlienSpaceShip;
 import projet.Model.gameClass.Building;
 import projet.Model.gameClass.SpaceShip;
-import projet.View.PlaygroundAreaView;
 
 public class GameController extends Observable{
     private Player player;
