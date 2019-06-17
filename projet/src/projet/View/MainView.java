@@ -18,8 +18,10 @@ public class MainView extends JFrame{
         InformationAreaView informationAreaView = new InformationAreaView();
         PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView();
 
+        
+        
         this.setLayout(new BorderLayout());
-
+        
         this.add(playgroundAreaView, BorderLayout.WEST);
         this.add(informationAreaView, BorderLayout.EAST);
 
@@ -27,7 +29,7 @@ public class MainView extends JFrame{
         pack();
 
         setTitle("Space Invaders");
-        setSize(1150, 1000);
+        setSize(1150, 900);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
