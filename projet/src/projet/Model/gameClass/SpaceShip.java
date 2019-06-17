@@ -32,4 +32,9 @@ public class SpaceShip extends TouchableGameObject{
         this.bulletReady = bulletReady;
     }
     
+    public void shoot(){
+        if(isBulletReady()){
+            super.shoot(100,"src/projet/Ressources/shot.gif");
+        }
+    }
 }
