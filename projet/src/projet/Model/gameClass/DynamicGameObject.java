@@ -20,8 +20,12 @@ public class DynamicGameObject extends GameObject {
         this.speed = speed;
     }
 
-    public void move() {
-
+    public void move(boolean left) {
+        if(left){
+            x-=speed;
+        }else{
+            x+=speed;
+        }
     }
     
 }
