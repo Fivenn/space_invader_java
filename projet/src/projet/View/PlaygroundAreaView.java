@@ -5,27 +5,28 @@ import projet.Model.gameClass.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 public class PlaygroundAreaView extends JPanel implements Observer {
     private GameController gameController;
-    private Alien alien;
+    private List<Alien> alienList;
     private AlienSpaceShip alienSpaceShip;
-    private Building building;
+    private List<Building> buildingList;
     private SpaceShip spaceShip;
 
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
-        alien;
-        alienSpaceShip;
-        building;
-        spaceShip;
+        alienList = gameController.getAliens();
+        alienSpaceShip = gameController.getAlienSpaceShip();
+        buildingList = gameController.getBuildings();
+        spaceShip = gameController.getSpaceShip();
 
         gameController.addObserver(this);
         setBackground(Color.BLACK);
 
-        InformationGameAreaView informationGameAreaView = new InformationGameAreaView();
+        InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
 
         this.setPreferredSize(new Dimension(900, 1000));
         this.setLayout(new BorderLayout());

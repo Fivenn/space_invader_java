@@ -16,9 +16,10 @@ import javax.swing.JFrame;
  * @author mallou
  */
 public class MainView extends JFrame{
+    GameController gameController;
 
-    public MainView() throws HeadlessException {
-        GameController gameController = new GameController();
+    public MainView(GameController gameController) throws HeadlessException {
+        this.gameController = gameController;
 
         InformationAreaView informationAreaView = new InformationAreaView();
         PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(gameController);

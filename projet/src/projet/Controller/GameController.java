@@ -6,25 +6,15 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
-<<<<<<< HEAD
 // import projet.Model.gameClass.Player;
-=======
 import projet.Model.gameClass.Alien;
 import projet.Model.gameClass.AlienSpaceShip;
 import projet.Model.gameClass.Building;
-import projet.Model.gameClass.Player;
->>>>>>> 6276d18af2dcb7be80bad34f53506537cbd02c1b
 import projet.Model.gameClass.SpaceShip;
 import projet.View.PlaygroundAreaView;
 
 public class GameController extends Observable{
-<<<<<<< HEAD
-    private SpaceShip spaceShip;
-    // private Player player;
-=======
     private Player player;
->>>>>>> 6276d18af2dcb7be80bad34f53506537cbd02c1b
-    
     private SpaceShip spaceShip;
     private List<Building> Buildings;
     private List<Alien> Aliens;

@@ -24,7 +24,7 @@ public class playGame {
         GameController gc = new GameController();
 
         EventQueue.invokeLater(() ->{
-            MainView fenetre = new MainView();
+            MainView fenetre = new MainView(gc);
         });
     }
     

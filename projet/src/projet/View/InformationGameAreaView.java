@@ -1,10 +1,22 @@
 package projet.View;
 
+import projet.Controller.GameController;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class InformationGameAreaView extends JPanel {
-    public InformationGameAreaView() {
+    private GameController gameController;
+    private int points;
+    private int lifePoints;
+    private String pseudo;
+
+    public InformationGameAreaView(GameController gameController) {
+        this.gameController = gameController;
+        points = gameController.getPlayer().getPoints();
+        lifePoints = gameController.getPlayer().getLifePoints();
+        pseudo = gameController.getPlayer().getPseudo();
+
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
         this.setPreferredSize(new Dimension(900, 50));
