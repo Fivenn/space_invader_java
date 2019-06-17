@@ -14,7 +14,9 @@ import projet.Model.gameClass.Player;
 import projet.Model.gameClass.SpaceShip;
 
 public class GameController extends Observable{
+
     private Player player;
+
     
     private SpaceShip spaceShip;
     private List<Building> Buildings;
