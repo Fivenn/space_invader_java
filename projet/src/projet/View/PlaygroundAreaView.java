@@ -10,8 +10,18 @@ import java.util.Observer;
 
 public class PlaygroundAreaView extends JPanel implements Observer {
     private GameController gameController;
+    private Alien alien;
+    private AlienSpaceShip alienSpaceShip;
+    private Building building;
+    private SpaceShip spaceShip;
+
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
+        alien;
+        alienSpaceShip;
+        building;
+        spaceShip;
+
         gameController.addObserver(this);
         setBackground(Color.BLACK);
 
@@ -21,13 +31,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         this.setLayout(new BorderLayout());
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
-
-        //Init tous les objets visuels
     }
-
 
     @Override
     public void update(Observable o, Object arg) {
-
+        // send keyevent
     }
 }

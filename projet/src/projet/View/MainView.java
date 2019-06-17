@@ -5,6 +5,9 @@
  */
 package projet.View;
 
+import projet.Controller.GameController;
+import projet.Model.gameClass.Alien;
+
 import java.awt.*;
 import javax.swing.JFrame;
 
@@ -15,8 +18,10 @@ import javax.swing.JFrame;
 public class MainView extends JFrame{
 
     public MainView() throws HeadlessException {
+        GameController gameController = new GameController();
+
         InformationAreaView informationAreaView = new InformationAreaView();
-        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView();
+        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(gameController);
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
