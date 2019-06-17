@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Observable;
 import javax.swing.ImageIcon;
-// import projet.Model.gameClass.Player;
+import projet.Model.gameClass.Player;
 import projet.Model.gameClass.Alien;
 import projet.Model.gameClass.AlienSpaceShip;
 import projet.Model.gameClass.Building;
@@ -19,6 +19,7 @@ public class GameController extends Observable{
     private AlienSpaceShip alienSpaceShip;
     
     public GameController() {
+        this.player = new Player(0, 3, "Pseudo");
         this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon("src/projet/Ressources/ship.gif"));
     }
 
@@ -35,7 +36,9 @@ public class GameController extends Observable{
                 break;
             default:
                 break;
-     }
+        }
+        this.setChanged();
+        this.notifyObservers();
     }
 
     /**

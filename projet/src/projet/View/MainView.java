@@ -22,7 +22,7 @@ public class MainView extends JFrame{
         this.gameController = gameController;
 
         InformationAreaView informationAreaView = new InformationAreaView();
-        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(gameController);
+        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(this.gameController);
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
