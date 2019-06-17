@@ -14,8 +14,8 @@ import javax.swing.ImageIcon;
 public class Building extends GameObject{
     private final int lifePoints;
 
-    public Building(int lifePoints, ImageIcon sprite) {
-        super(sprite);
+    public Building(double x, double y,int lifePoints, ImageIcon sprite) {
+        super(x,y,sprite);
         this.lifePoints = lifePoints;
     }
 }

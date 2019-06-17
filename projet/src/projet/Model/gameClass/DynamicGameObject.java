@@ -9,23 +9,35 @@ import javax.swing.ImageIcon;
 
 
 public class DynamicGameObject extends GameObject {
-    double x;
-    double y;
-    int speed;
+    private int speed;
 
     public DynamicGameObject(double x, double y, int speed,ImageIcon sprite) {
-        super(sprite);
-        this.x = x;
-        this.y = y;
+        super(x,y,sprite);
         this.speed = speed;
     }
 
     public void move(boolean left) {
         if(left){
-            x-=speed;
+            setX(getX() - getSpeed());
         }else{
-            x+=speed;
+            setX(getX() + getSpeed());
         }
+    }
+
+    
+
+    /**
+     * @return the speed
+     */
+    public int getSpeed() {
+        return speed;
+    }
+
+    /**
+     * @param speed the speed to set
+     */
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
     
 }

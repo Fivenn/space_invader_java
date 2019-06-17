@@ -5,11 +5,14 @@ import projet.Model.gameClass.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class PlaygroundAreaView extends JPanel implements Observer {
+public class PlaygroundAreaView extends JPanel implements Observer,ActionListener {
     private GameController gameController;
     private List<Alien> alienList;
     private AlienSpaceShip alienSpaceShip;
@@ -32,10 +35,49 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         this.setLayout(new BorderLayout());
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
+        
+        Timer timer = new Timer(25, this);
+        timer.start();
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        System.out.println("projet.View.PlaygroundAreaView.paintComponent()");
+        super.paintComponent(g);
+        draw(g);
+    }
+
+    private void draw(Graphics g) {
+        drawSpaceShip(g);
+        Toolkit.getDefaultToolkit().sync();
+    }
+    
+    private void drawBuildings(Graphics g){
+        for(GameObject go : buildingList){
+            g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), this);
+        }     
+    }
+    
+    private void drawAliens(Graphics g){
+        for(GameObject go : alienList){
+            g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), this);
+        }
+    }
+    
+    private void drawSpaceShip(Graphics g){
+        Image i = this.spaceShip.loadImage();
+        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(), this);
+        System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
+    }
+        
+    @Override
+    public void update(Observable o, Object arg) {
+        repaint(); 
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        // send keyevent
+    public void actionPerformed(ActionEvent e) {
+        this.gameController.actionJoueur(KeyEvent.VK_RIGHT);
+        repaint();    
     }
 }
