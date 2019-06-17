@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Controller/GameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/Alien.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/AlienSpaceShip.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/Bullet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/DynamicGameObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/SpaceShip.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/TouchableGameObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/InformationGameAreaView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/PlaygroundAreaView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/playGame.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/playGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/playGame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,11 +93,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="126">
+                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
                 </state>
               </provider>
             </entry>
@@ -136,7 +118,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
+                <state relative-caret-position="574">
                   <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -341,18 +323,18 @@
       <workItem from="1560365418997" duration="5201000" />
       <workItem from="1560781191548" duration="898000" />
       <workItem from="1560785703086" duration="2289000" />
-      <workItem from="1560788089481" duration="23000" />
+      <workItem from="1560788089481" duration="206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11684000" />
+    <option name="totallyTimeSpent" value="11867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22283272" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22283272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -371,7 +353,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.48983958" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.20106952" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -550,11 +532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
