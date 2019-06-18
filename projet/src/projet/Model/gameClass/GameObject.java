@@ -9,6 +9,8 @@ public abstract class GameObject {
     private double y;
     
     public GameObject(double x, double y,ImageIcon sprite) {
+        this.x = x;
+        this.y = y;
         this.sprite = sprite;
     }
 

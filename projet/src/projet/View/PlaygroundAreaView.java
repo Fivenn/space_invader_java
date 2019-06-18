@@ -28,8 +28,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         spaceShip = gameController.getSpaceShip();
         bullet = gameController.getBullet();
 
+        this.alienList = gameController.getAliens();
+        this.alienSpaceShip = gameController.getAlienSpaceShip();
+        this.buildingList = gameController.getBuildings();
+        this.spaceShip = gameController.getSpaceShip();
 
-        gameController.addObserver(this);
+        this.gameController.addObserver(this);
         setBackground(Color.BLACK);
 
         InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
@@ -44,7 +48,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     
     @Override
     public void paintComponent(Graphics g) {
-        System.out.println("projet.View.PlaygroundAreaView.paintComponent()");
         super.paintComponent(g);
         draw(g);
     }
@@ -82,6 +85,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         Image i = this.bullet.loadImage();
         g.drawImage(i, (int) this.bullet.getX(), (int) this.bullet.getY(), 200, 200, this);
         //Gérer l'impact
+        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),50,50, this);
+        System.out.println("x : "+this.spaceShip.getX() + " int x : "+(int)this.spaceShip.getX());
     }
         
     @Override
