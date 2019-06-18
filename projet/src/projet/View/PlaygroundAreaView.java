@@ -5,9 +5,6 @@ import projet.Model.gameClass.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -72,7 +69,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     
     private void drawSpaceShip(Graphics g){
         Image i = this.spaceShip.loadImage();
-        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),200,200, this);
+        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),50,50, this);
         // System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
     }
 
@@ -84,9 +81,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private void drawBullet(Graphics g) {
         Image i = this.bullet.loadImage();
         g.drawImage(i, (int) this.bullet.getX(), (int) this.bullet.getY(), 200, 200, this);
-        //Gérer l'impact
-        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),50,50, this);
-        System.out.println("x : "+this.spaceShip.getX() + " int x : "+(int)this.spaceShip.getX());
     }
         
     @Override

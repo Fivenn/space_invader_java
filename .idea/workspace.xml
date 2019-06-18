@@ -4,12 +4,10 @@
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Model/gameClass/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/MainView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/PlaygroundAreaView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/PlaygroundAreaView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invaders_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/space_invaders_project.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state relative-caret-position="440">
+              <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2783#2784#0" expanded="true" />
@@ -69,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="413">
+              <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -288,7 +286,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20580000" />
+    <option name="totallyTimeSpent" value="21048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
@@ -567,8 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state relative-caret-position="440">
+          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2783#2784#0" expanded="true" />
@@ -579,8 +577,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="413">
+          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
