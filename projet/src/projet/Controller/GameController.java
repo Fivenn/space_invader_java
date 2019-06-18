@@ -14,14 +14,14 @@ import projet.Model.gameClass.SpaceShip;
 public class GameController extends Observable{
     private Player player;
     private SpaceShip spaceShip;
-    private List<Building> Buildings;
-    private List<Alien> Aliens;
+    private List<Building> buildings;
+    private List<Alien> aliens;
     private AlienSpaceShip alienSpaceShip;
     
     public GameController() {
         this.player = new Player(0, 3, "Coucou");
         this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
-        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(500,500,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
     }
 
     public void actionJoueur(int keyCode){
@@ -74,28 +74,28 @@ public class GameController extends Observable{
      * @return the Buildings
      */
     public List<Building> getBuildings() {
-        return Buildings;
+        return buildings;
     }
 
     /**
      * @param Buildings the Buildings to set
      */
     public void setBuildings(List<Building> Buildings) {
-        this.Buildings = Buildings;
+        this.buildings = Buildings;
     }
 
     /**
      * @return the Aliens
      */
     public List<Alien> getAliens() {
-        return Aliens;
+        return aliens;
     }
 
     /**
      * @param Aliens the Aliens to set
      */
     public void setAliens(List<Alien> Aliens) {
-        this.Aliens = Aliens;
+        this.aliens = Aliens;
     }
 
     /**
