@@ -20,8 +20,8 @@ public class GameController extends Observable{
     
     public GameController() {
         this.player = new Player(0, 3, "Coucou");
-        this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
-        this.alienSpaceShip = new AlienSpaceShip(500,500,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
     }
 
     public void actionJoueur(int keyCode){

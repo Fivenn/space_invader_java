@@ -21,12 +21,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
-        alienList = gameController.getAliens();
-        alienSpaceShip = gameController.getAlienSpaceShip();
-        buildingList = gameController.getBuildings();
-        spaceShip = gameController.getSpaceShip();
+        this.alienList = gameController.getAliens();
+        this.alienSpaceShip = gameController.getAlienSpaceShip();
+        this.buildingList = gameController.getBuildings();
+        this.spaceShip = gameController.getSpaceShip();
 
-        gameController.addObserver(this);
+        this.gameController.addObserver(this);
         setBackground(Color.BLACK);
 
         InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
@@ -41,7 +41,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     
     @Override
     public void paintComponent(Graphics g) {
-        System.out.println("projet.View.PlaygroundAreaView.paintComponent()");
         super.paintComponent(g);
         draw(g);
     }
@@ -65,8 +64,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     
     private void drawSpaceShip(Graphics g){
         Image i = this.spaceShip.loadImage();
-        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),200,200, this);
-        System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
+        g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),50,50, this);
+        System.out.println("x : "+this.spaceShip.getX() + " int x : "+(int)this.spaceShip.getX());
     }
         
     @Override
