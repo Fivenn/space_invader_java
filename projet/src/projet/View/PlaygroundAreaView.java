@@ -15,10 +15,14 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private AlienSpaceShip alienSpaceShip;
     private List<Building> buildingList;
     private SpaceShip spaceShip;
-    private Bullet bullet;
 
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
+        alienList = gameController.getAliens();
+        alienSpaceShip = gameController.getAlienSpaceShip();
+        buildingList = gameController.getBuildings();
+        spaceShip = gameController.getSpaceShip();
+
         this.alienList = gameController.getAliens();
         this.alienSpaceShip = gameController.getAlienSpaceShip();
         this.buildingList = gameController.getBuildings();
@@ -73,8 +77,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
 
     private void drawBullet(Graphics g) {
-        Image i = this.bullet.loadImage();
-        g.drawImage(i, (int) this.bullet.getX(), (int) this.bullet.getY(), 200, 200, this);
+        Image i = this.spaceShip.getBullet().loadImage();
+        g.drawImage(i, (int) this.spaceShip.getBullet().getX(), (int) this.spaceShip.getBullet().getY(), 200, 200, this);
     }
         
     @Override

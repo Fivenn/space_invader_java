@@ -9,17 +9,17 @@ import javax.swing.ImageIcon;
 
 import projet.Model.gameClass.*;
 
-public class GameController extends Observable{
+public class GameController extends Observable {
     private Player player;
     private SpaceShip spaceShip;
     private List<Building> buildings;
     private List<Alien> aliens;
     private AlienSpaceShip alienSpaceShip;
-    private Bullet bullet;
     
     public GameController() {
-        this.player = new Player(0, 3, "Coucou");
-        this.bullet = new Bullet(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("shot.gif")));
+        this.player = new Player(0, 3, "BestPlayer");
+        this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.aliens = new ArrayList();
@@ -27,6 +27,7 @@ public class GameController extends Observable{
         //TMP
         aliens.add(new Alien(10, 10, 5, 5, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"))));
     }
+    
 
     public void actionJoueur(int keyCode){
         switch(keyCode){
@@ -116,7 +117,4 @@ public class GameController extends Observable{
         this.alienSpaceShip = alienSpaceShip;
     }
 
-    public Bullet getBullet() {
-        return bullet;
-    }
 }
