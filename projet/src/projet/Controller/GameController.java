@@ -33,6 +33,7 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
+    private Timer timer;
     private int isAliensOnTheWall = 1;
 
     public GameController() {
@@ -44,8 +45,8 @@ public class GameController extends Observable implements ActionListener{
         //TMP
         //aliens.add(new Alien(10, 10, 5, 5, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"))));
     
-        Timer timer = new Timer(50, this);
-        timer.start();
+        this.timer = new Timer(50, this);
+        this.timer.start();
     }
     
 
@@ -102,6 +103,10 @@ public class GameController extends Observable implements ActionListener{
                     a.setY(a.getY() + 50);
                     if(a.getY()>600){
                         this.player.setLifePoints(this.player.getLifePoints()-1);
+                        if(this.player.getLifePoints()<0){
+                            this.timer.stop();
+                            
+                        }
                         System.out.println(this.player.getLifePoints());
                     }
                 });
