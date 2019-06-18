@@ -19,12 +19,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
-        alienList = gameController.getAliens();
-        alienSpaceShip = gameController.getAlienSpaceShip();
-        buildingList = gameController.getBuildings();
-        spaceShip = gameController.getSpaceShip();
-        bullet = gameController.getBullet();
-
         this.alienList = gameController.getAliens();
         this.alienSpaceShip = gameController.getAlienSpaceShip();
         this.buildingList = gameController.getBuildings();

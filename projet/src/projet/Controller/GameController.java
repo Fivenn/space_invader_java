@@ -2,6 +2,7 @@ package projet.Controller;
 
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import javax.swing.ImageIcon;
@@ -18,11 +19,13 @@ public class GameController extends Observable{
     
     public GameController() {
         this.player = new Player(0, 3, "Coucou");
-        this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
-        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.bullet = new Bullet(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("shot.gif")));
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.aliens = new ArrayList();
+
+        //TMP
+        aliens.add(new Alien(10, 10, 5, 5, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"))));
     }
 
     public void actionJoueur(int keyCode){
