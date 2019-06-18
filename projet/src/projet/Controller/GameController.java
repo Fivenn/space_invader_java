@@ -5,11 +5,8 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Observable;
 import javax.swing.ImageIcon;
-import projet.Model.gameClass.Player;
-import projet.Model.gameClass.Alien;
-import projet.Model.gameClass.AlienSpaceShip;
-import projet.Model.gameClass.Building;
-import projet.Model.gameClass.SpaceShip;
+
+import projet.Model.gameClass.*;
 
 public class GameController extends Observable{
     private Player player;
@@ -17,11 +14,13 @@ public class GameController extends Observable{
     private List<Building> buildings;
     private List<Alien> aliens;
     private AlienSpaceShip alienSpaceShip;
+    private Bullet bullet;
     
     public GameController() {
         this.player = new Player(0, 3, "Coucou");
         this.spaceShip = new SpaceShip(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
-        this.alienSpaceShip = new AlienSpaceShip(500,500,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.bullet = new Bullet(0, 0, 1, new ImageIcon(this.getClass().getClassLoader().getResource("shot.gif")));
     }
 
     public void actionJoueur(int keyCode){
@@ -111,8 +110,8 @@ public class GameController extends Observable{
     public void setAlienSpaceShip(AlienSpaceShip alienSpaceShip) {
         this.alienSpaceShip = alienSpaceShip;
     }
-    
-    
 
-    
+    public Bullet getBullet() {
+        return bullet;
+    }
 }

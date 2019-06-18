@@ -16,5 +16,4 @@ public class Bullet extends DynamicGameObject{
     public Bullet(double x, double y, int speed, ImageIcon sprite) {
         super(x, y, speed, sprite);
     }
-    
 }

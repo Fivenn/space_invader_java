@@ -18,6 +18,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private AlienSpaceShip alienSpaceShip;
     private List<Building> buildingList;
     private SpaceShip spaceShip;
+    private Bullet bullet;
 
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -25,6 +26,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         alienSpaceShip = gameController.getAlienSpaceShip();
         buildingList = gameController.getBuildings();
         spaceShip = gameController.getSpaceShip();
+        bullet = gameController.getBullet();
+
 
         gameController.addObserver(this);
         setBackground(Color.BLACK);
@@ -48,6 +51,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
     private void draw(Graphics g) {
         drawSpaceShip(g);
+        drawAlienSpaceShip(g);
         Toolkit.getDefaultToolkit().sync();
     }
     
@@ -66,7 +70,18 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private void drawSpaceShip(Graphics g){
         Image i = this.spaceShip.loadImage();
         g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),200,200, this);
-        System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
+        // System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
+    }
+
+    private void drawAlienSpaceShip(Graphics g){
+        Image i = this.alienSpaceShip.loadImage();
+        g.drawImage(i, (int) this.alienSpaceShip.getX(), (int) this.alienSpaceShip.getY(), 50, 50, this);
+    }
+
+    private void drawBullet(Graphics g) {
+        Image i = this.bullet.loadImage();
+        g.drawImage(i, (int) this.bullet.getX(), (int) this.bullet.getY(), 200, 200, this);
+        //Gérer l'impact
     }
         
     @Override
