@@ -71,10 +71,10 @@ public class GameController extends Observable implements ActionListener{
         List<Alien> listAliens;
         ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"));
         
-        for(int y = 2;y<8;y++){
+        for(int y = 2;y<7;y++){
             listAliens = new ArrayList<>();
             for(int x = 1;x<11;x++){
-                listAliens.add(new Alien(x*50, y*50, 10, 10, alienIcon));
+                listAliens.add(new Alien(x*50, y*50, 20, 10, alienIcon));
             }
             this.aliens.add(listAliens);
         }
@@ -83,7 +83,6 @@ public class GameController extends Observable implements ActionListener{
     private void moveAliens(){
         boolean shouldMoveDown = false;
         if(this.aliens.get(0).get(9).getX()>856){
-            System.out.println("aliens x : "+this.aliens.get(this.aliens.size()-1).get(0).getX()+"fazilebfaizefpuiazepuifhapzhefuhazef");
             this.isAliensOnTheWall = -1;
             shouldMoveDown = true;
         }else if(this.aliens.get(0).get(0).getX()<1){
@@ -91,21 +90,23 @@ public class GameController extends Observable implements ActionListener{
             shouldMoveDown = true;
         }
         
-        for(List<Alien> ls : this.aliens){
-            System.out.println("Nouvelle colonne");
-            for(Alien a : ls){
-                System.out.println("aliens x : "+a.getX()+" y : "+a.getY());
+        this.aliens.forEach((ls) -> {
+            ls.forEach((a) -> {
                 a.setX(a.getX() + a.getSpeed()*isAliensOnTheWall);
-            }
-        }
+            });
+        });
         
         if(shouldMoveDown){
-            for(List<Alien> ls : this.aliens){
-                for(Alien a : ls){
-                    System.out.println("aliens x : "+a.getX()+" y : "+a.getY());
+            this.aliens.forEach((ls) -> {
+                ls.forEach((a) -> {
                     a.setY(a.getY() + 50);
-                }
-            }
+                    if(a.getY()>600){
+                        this.player.setLifePoints(this.player.getLifePoints()-1);
+                        System.out.println(this.player.getLifePoints());
+                    }
+                });
+            });
+            
         }
         
 

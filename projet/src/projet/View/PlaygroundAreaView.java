@@ -54,19 +54,17 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
     
     private void drawBuildings(Graphics g){
-        for(GameObject go : buildingList){
+        buildingList.forEach((go) -> {
             g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), this);
-        }     
+        });     
     }
     
     private void drawAliens(Graphics g){
-        for(List<Alien> ls : this.alienList){
-            
-            for(GameObject go : ls){
-                System.out.println("aliens x : "+go.getX()+" y : "+go.getY());
+        this.alienList.forEach((ls) -> {
+            ls.forEach((go) -> {
                 g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(),50,50, this);
-            }
-        }
+            });
+        });
     }
     
     private void drawSpaceShip(Graphics g){

@@ -34,7 +34,7 @@ public class SpaceShip extends TouchableGameObject{
     
     public void shoot(){
         if(isBulletReady()){
-            super.shoot(100,"src/projet/Ressources/shot.gif");
+            super.shoot(100,this.getClass().getClassLoader().getResource("shot.gif").toString());
         }
     }
 }
