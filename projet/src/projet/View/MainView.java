@@ -32,7 +32,7 @@ public class MainView extends JFrame{
         pack();
 
         setTitle("Space Invaders");
-        setSize(1150, 900);
+        setSize(1150, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
