@@ -11,7 +11,7 @@ import java.util.Observer;
 
 public class PlaygroundAreaView extends JPanel implements Observer {
     private GameController gameController;
-    private List<Alien> alienList;
+    private List<List<Alien>> alienList;
     private AlienSpaceShip alienSpaceShip;
     private List<Building> buildingList;
     private SpaceShip spaceShip;
@@ -49,7 +49,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
     private void draw(Graphics g) {
         drawSpaceShip(g);
-        drawAlienSpaceShip(g);
+        drawAliens(g);
         Toolkit.getDefaultToolkit().sync();
     }
     
@@ -60,8 +60,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
     
     private void drawAliens(Graphics g){
-        for(GameObject go : alienList){
-            g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), this);
+        for(List<Alien> ls : this.alienList){
+            
+            for(GameObject go : ls){
+                System.out.println("aliens x : "+go.getX()+" y : "+go.getY());
+                g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(),50,50, this);
+            }
         }
     }
     
