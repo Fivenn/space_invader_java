@@ -52,8 +52,6 @@ public class GameController extends Observable implements ActionListener{
         }
     }
 
-
-
     /**
      * @param aliens the aliens to set
      */
@@ -193,6 +191,7 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = alienSpaceShip;
     }
 
-
-
+    public boolean isPause() {
+        return pause;
+    }
 }

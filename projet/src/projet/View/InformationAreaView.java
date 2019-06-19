@@ -54,6 +54,15 @@ public class InformationAreaView extends JPanel {
         helpButton.setForeground(Color.white);
         helpButton.setOpaque(true);
         helpButton.setBorderPainted(false);
+        helpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!gameController.isPause()) {
+                    gameController.pauseGame();
+                }
+                // Afficher le nouveau Panel
+            }
+        });
 
         quitButton.setBackground(Color.black);
         quitButton.setForeground(Color.red);
