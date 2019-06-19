@@ -12,6 +12,7 @@ import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
     private GameController gameController;
+    private int pause = 0;
 
     public InformationAreaView(GameController gameController) {
         this.gameController = gameController;
