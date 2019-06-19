@@ -12,6 +12,7 @@ import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
     private GameController gameController;
+    private int pause = 0;
 
     public InformationAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -42,6 +43,12 @@ public class InformationAreaView extends JPanel {
         pauseButton.setForeground(Color.white);
         pauseButton.setOpaque(true);
         pauseButton.setBorderPainted(false);
+        pauseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameController.pauseGame();
+            }
+        });
         
         helpButton.setBackground(Color.black);
         helpButton.setForeground(Color.white);

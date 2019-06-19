@@ -29,6 +29,7 @@ public class GameController extends Observable implements ActionListener{
     
     private final Timer timer;
     private int isAliensOnTheWall = 1;
+    private boolean pause = false;
 
     public GameController() {
         this.player = new Player(0, 3, "BestPlayer");
@@ -40,6 +41,18 @@ public class GameController extends Observable implements ActionListener{
         this.timer = new Timer(15, this);
         this.timer.start();
     }
+
+    public void pauseGame() {
+        if (this.pause) {
+            this.timer.start();
+            this.pause = false;
+        } else {
+            this.timer.stop();
+            this.pause = true;
+        }
+    }
+
+
 
     /**
      * @param aliens the aliens to set
