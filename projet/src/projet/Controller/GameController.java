@@ -61,9 +61,6 @@ public class GameController extends Observable implements ActionListener{
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         buildAliensList();
-
-        this.timer = new Timer(15, this);
-        this.timer.start();
     }
 
     /**
