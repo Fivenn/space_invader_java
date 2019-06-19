@@ -11,7 +11,7 @@ import projet.Model.gameClass.Alien;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
@@ -23,8 +23,8 @@ public class MainView extends JFrame implements KeyListener{
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
 
-        InformationAreaView informationAreaView = new InformationAreaView(this.gameController);
         PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(this.gameController);
+        InformationAreaView informationAreaView = new InformationAreaView(this.gameController);
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
@@ -41,6 +41,12 @@ public class MainView extends JFrame implements KeyListener{
         this.addKeyListener(this);
         setVisible(true);
         this.requestFocus();
+    }
+
+    private void changePlaygroundAreaViewToHelpView() {
+        HelpView helpView = new HelpView();
+        this.setContentPane(helpView);
+        this.revalidate();
     }
 
     @Override

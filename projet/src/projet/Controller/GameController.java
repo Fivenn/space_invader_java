@@ -21,12 +21,6 @@ public class GameController extends Observable implements ActionListener{
         return aliens;
     }
 
-    /**
-     * @param aliens the aliens to set
-     */
-    public void setAliens(List<List<Alien>> aliens) {
-        this.aliens = aliens;
-    }
     private Player player;
     private SpaceShip spaceShip;
     private List<Building> buildings;
@@ -42,13 +36,17 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.aliens = new ArrayList();
         buildAliensList();
-        //TMP
-        //aliens.add(new Alien(10, 10, 5, 5, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"))));
     
         this.timer = new Timer(50, this);
         this.timer.start();
     }
-    
+
+    /**
+     * @param aliens the aliens to set
+     */
+    public void setAliens(List<List<Alien>> aliens) {
+        this.aliens = aliens;
+    }
 
     public void actionJoueur(int keyCode){
         switch(keyCode){

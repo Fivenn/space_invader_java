@@ -37,8 +37,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         this.setLayout(new BorderLayout());
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
-        
-        
     }
     
     @Override
