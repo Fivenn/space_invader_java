@@ -27,7 +27,7 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
-    private final Timer timer;
+    private Timer timer;
     private int isAliensOnTheWall = 1;
     private boolean pause = false;
 
@@ -37,7 +37,7 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.aliens = new ArrayList();
         buildAliensList();
-    
+
         this.timer = new Timer(15, this);
         this.timer.start();
     }
@@ -50,6 +50,20 @@ public class GameController extends Observable implements ActionListener{
             this.timer.stop();
             this.pause = true;
         }
+    }
+
+    public void resetGameController() {
+        this.isAliensOnTheWall = 1;
+        this.pause = false;
+        this.aliens.clear();
+
+        this.player = new Player(0, 3, "BestPlayer");
+        this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        buildAliensList();
+
+        this.timer = new Timer(15, this);
+        this.timer.start();
     }
 
     /**
