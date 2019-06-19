@@ -41,6 +41,15 @@ public class GameController extends Observable implements ActionListener{
         this.timer.start();
     }
 
+    public void pauseGame() {
+        this.timer.stop();
+    }
+
+    public void resumeGame() {
+        this.timer.start();
+    }
+
+
     /**
      * @param aliens the aliens to set
      */

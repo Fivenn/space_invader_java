@@ -49,6 +49,8 @@ public class MainView extends JFrame implements KeyListener{
         this.revalidate();
     }
 
+
+
     @Override
     public void keyTyped(KeyEvent e) {
         System.out.println("projet.View.MainView.keyTyped()");
