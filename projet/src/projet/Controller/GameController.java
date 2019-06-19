@@ -111,13 +111,14 @@ public class GameController extends Observable implements ActionListener{
             });
             
         }
-        
-
     }
          
     @Override
     public void actionPerformed(ActionEvent e) {
         moveAliens();
+        if(this.getSpaceShip().getBullet() != null){
+            this.getSpaceShip().getBullet().move(true);
+        }
         this.setChanged();
         this.notifyObservers();
     }

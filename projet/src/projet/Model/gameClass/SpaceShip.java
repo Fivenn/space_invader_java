@@ -16,6 +16,7 @@ public class SpaceShip extends TouchableGameObject{
     
     public SpaceShip(double x, double y, int speed, ImageIcon sprite) {
         super(x, y, speed,sprite);
+        this.setBulletReady(true);
     }
 
     /**
@@ -34,7 +35,8 @@ public class SpaceShip extends TouchableGameObject{
     
     public void shoot(){
         if(isBulletReady()){
-            super.shoot(100,this.getClass().getClassLoader().getResource("shot.gif").toString());
+            super.shoot(10,new ImageIcon(this.getClass().getClassLoader().getResource("shot.gif")));
+            this.setBulletReady(false);
         }
     }
 }

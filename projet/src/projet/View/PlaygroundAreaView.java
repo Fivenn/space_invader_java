@@ -48,6 +48,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private void draw(Graphics g) {
         drawSpaceShip(g);
         drawAliens(g);
+        
+        if(this.gameController.getSpaceShip().getBullet()!= null){
+            drawBullet(g);
+        }
         Toolkit.getDefaultToolkit().sync();
     }
     
@@ -68,7 +72,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private void drawSpaceShip(Graphics g){
         Image i = this.spaceShip.loadImage();
         g.drawImage(i,(int) this.spaceShip.getX(), (int) this.spaceShip.getY(),50,50, this);
-        // System.out.println("projet.View.PlaygroundAreaView.drawSpaceShip()"+this.spaceShip.loadImage());
     }
 
     private void drawAlienSpaceShip(Graphics g){
@@ -78,7 +81,9 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
     private void drawBullet(Graphics g) {
         Image i = this.spaceShip.getBullet().loadImage();
-        g.drawImage(i, (int) this.spaceShip.getBullet().getX(), (int) this.spaceShip.getBullet().getY(), 200, 200, this);
+        g.drawImage(i, (int) this.spaceShip.getBullet().getX(), (int) this.spaceShip.getBullet().getY(), 20, 20, this);
+        System.out.println(this.spaceShip.getBullet().getX() + " y : " + this.spaceShip.getBullet().getY());
+
     }
         
     @Override

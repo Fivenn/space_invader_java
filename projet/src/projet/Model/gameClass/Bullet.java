@@ -23,4 +23,13 @@ public class Bullet extends DynamicGameObject{
         this.shooter.setBullet(null);
     }
     
+    @Override
+    public void move(boolean up) {
+        if(up){
+            setY(getY() - getSpeed());
+        }else{
+            setY(getY() + getSpeed());
+        }
+    }
+    
 }
