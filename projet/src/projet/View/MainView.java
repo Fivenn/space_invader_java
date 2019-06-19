@@ -18,7 +18,7 @@ import javax.swing.*;
  * @author mallou
  */
 public class MainView extends JFrame implements KeyListener{
-    GameController gameController;
+    private GameController gameController;
 
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
@@ -44,7 +44,7 @@ public class MainView extends JFrame implements KeyListener{
     }
 
     private void changePlaygroundAreaViewToHelpView() {
-        HelpView helpView = new HelpView();
+        HelpView helpView = new HelpView(this.gameController);
         this.setContentPane(helpView);
         this.revalidate();
     }
