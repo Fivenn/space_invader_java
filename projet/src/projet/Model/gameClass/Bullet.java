@@ -21,6 +21,7 @@ public class Bullet extends DynamicGameObject{
     
     private void onCollision(){
         this.shooter.setBullet(null);
+        this.shooter.setBulletReady(true);
     }
     
     @Override
@@ -29,6 +30,9 @@ public class Bullet extends DynamicGameObject{
             setY(getY() - getSpeed());
         }else{
             setY(getY() + getSpeed());
+        }
+        if(this.getY()<0){
+            this.onCollision();
         }
     }
     

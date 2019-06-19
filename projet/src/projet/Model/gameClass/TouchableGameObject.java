@@ -13,18 +13,31 @@ import javax.swing.ImageIcon;
  */
 public abstract class TouchableGameObject extends DynamicGameObject{
 
-
+    private boolean bulletReady;
     private Bullet bullet;
     
     public TouchableGameObject(double x, double y, int speed, ImageIcon sprite) {
         super(x, y, speed, sprite);
+        this.setBulletReady(true);
         this.bullet = null;
     }
     
     protected void shoot(int speedBullet,ImageIcon bulletSprite){
         this.setBullet(new Bullet(getX(), getY(), speedBullet, bulletSprite,this));
     }
-    
+    /**
+     * @return the bulletReady
+     */
+    public boolean isBulletReady() {
+        return bulletReady;
+    }
+
+    /**
+     * @param bulletReady the bulletReady to set
+     */
+    public void setBulletReady(boolean bulletReady) {
+        this.bulletReady = bulletReady;
+    }
         /**
      * @return the bullet
      */
