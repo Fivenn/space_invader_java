@@ -27,7 +27,7 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
-    private Timer timer;
+    private final Timer timer;
     private int isAliensOnTheWall = 1;
 
     public GameController() {
@@ -37,7 +37,7 @@ public class GameController extends Observable implements ActionListener{
         this.aliens = new ArrayList();
         buildAliensList();
     
-        this.timer = new Timer(50, this);
+        this.timer = new Timer(15, this);
         this.timer.start();
     }
 
@@ -70,10 +70,10 @@ public class GameController extends Observable implements ActionListener{
         List<Alien> listAliens;
         ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"));
         
-        for(int y = 2;y<7;y++){
+        for(int x = 1;x<11;x++){
             listAliens = new ArrayList<>();
-            for(int x = 1;x<11;x++){
-                listAliens.add(new Alien(x*50, y*50, 20, 10, alienIcon));
+            for(int y = 2;y<7;y++){
+                listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
             }
             this.aliens.add(listAliens);
         }
@@ -81,7 +81,7 @@ public class GameController extends Observable implements ActionListener{
     
     private void moveAliens(){
         boolean shouldMoveDown = false;
-        if(this.aliens.get(0).get(9).getX()>856){
+        if(this.aliens.get(this.aliens.size() - 1).get(0).getX()>856){
             this.isAliensOnTheWall = -1;
             shouldMoveDown = true;
         }else if(this.aliens.get(0).get(0).getX()<1){
