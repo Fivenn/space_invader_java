@@ -15,7 +15,7 @@ public class Bullet extends DynamicGameObject{
     private TouchableGameObject shooter;
     
     public Bullet(double x, double y, int speed, ImageIcon sprite, TouchableGameObject shooter) {
-        super(x, y, speed, sprite);
+        super(speed, sprite,x, y, 20,20);
         this.shooter = shooter;
     }
     

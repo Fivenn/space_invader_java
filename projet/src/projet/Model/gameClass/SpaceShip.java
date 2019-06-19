@@ -15,7 +15,7 @@ public class SpaceShip extends TouchableGameObject{
     
     
     public SpaceShip(double x, double y, int speed, ImageIcon sprite) {
-        super(x, y, speed,sprite);
+        super(x, y, speed,sprite,50,50);
         
     }
 

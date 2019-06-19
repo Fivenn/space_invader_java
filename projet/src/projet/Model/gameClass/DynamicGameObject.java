@@ -16,6 +16,12 @@ public class DynamicGameObject extends GameObject {
         this.speed = speed;
     }
 
+    public DynamicGameObject(int speed, ImageIcon sprite, double x, double y, double width, double heigth) {
+        super(sprite, x, y, width, heigth);
+        this.speed = speed;
+    }
+    
+
     public void move(boolean left) {
         if(left){
             setX(getX() - getSpeed());
