@@ -32,8 +32,21 @@ public class GameController extends Observable implements ActionListener{
     private boolean pause = false;
 
     public GameController() {
-        this.resetGameController();
-        this.timer = new Timer(100, this);
+        this.player = new Player(0, 3, "BestPlayer");
+        this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
+        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.aliens = new ArrayList();
+        buildAliensList();
+        
+        int i = 0;
+        for(List<Alien> l : aliens){
+            for(Alien a : l){
+                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
+            }
+            i++;
+        }
+            
+        this.timer = new Timer(5, this);
         this.timer.start();
     }
 
@@ -49,14 +62,24 @@ public class GameController extends Observable implements ActionListener{
 
     public void resetGameController() {
         this.isAliensOnTheWall = 1;
-        this.pause = false;   
-        this.aliens = new ArrayList();
+        this.pause = false;
+        this.aliens .clear();
 
 
         this.player = new Player(0, 3, "BestPlayer");
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+
         buildAliensList();
+        int i = 0;
+        for(List<Alien> l : aliens){
+            for(Alien a : l){
+                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
+            }
+            i++;
+        }
+
+        this.timer.restart();
     }
 
     /**
