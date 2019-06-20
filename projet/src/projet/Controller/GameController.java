@@ -65,6 +65,10 @@ public class GameController extends Observable implements ActionListener{
         this.timer.restart();
     }
 
+    public void gameOver() {
+
+    }
+
     /**
      * @param aliens the aliens to set
      */

@@ -4,6 +4,7 @@ import projet.Controller.GameController;
 import projet.Model.gameClass.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
 import java.util.Observable;
@@ -24,19 +25,20 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         buildingList = gameController.getBuildings();
         spaceShip = gameController.getSpaceShip();
         spaceShipImage = this.spaceShip.loadImage();
-        
-        this.alienList = gameController.getAliens();
-        this.alienSpaceShip = gameController.getAlienSpaceShip();
-        this.buildingList = gameController.getBuildings();
-        this.spaceShip = gameController.getSpaceShip();
 
         this.gameController.addObserver(this);
         setBackground(Color.BLACK);
 
         InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
 
+        JLabel gamerOver = new JLabel("GAME OVER");
+        gamerOver.setForeground(Color.white);
+        gamerOver.setBackground(Color.black);
+        gamerOver.setFont(gamerOver.getFont().deriveFont(64f));
+
         this.setPreferredSize(new Dimension(900, 1000));
         this.setLayout(new BorderLayout());
+        this.add(gamerOver, BorderLayout.CENTER);
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
     }
@@ -104,12 +106,11 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             }
 
         }
-        
     }
         
     @Override
     public void update(Observable o, Object arg) {
-        repaint(); 
+        repaint();
     }
 
 }
