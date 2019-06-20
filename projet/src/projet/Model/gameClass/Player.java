@@ -19,6 +19,10 @@ public class Player {
         this.lifePoints = lifePoints;
         this.pseudo = pseudo;
     }
+    
+    public void removeLifePoints(int lifePoints){
+        this.lifePoints -= lifePoints;
+    }
 
     /**
      * @return the points

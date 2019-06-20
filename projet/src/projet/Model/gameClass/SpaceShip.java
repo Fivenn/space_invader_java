@@ -13,9 +13,8 @@ import javax.swing.ImageIcon;
  */
 public class SpaceShip extends TouchableGameObject{
     
-    
     public SpaceShip(double x, double y, int speed, ImageIcon sprite) {
-        super(x, y, speed,sprite,50,50);
+        super(x, y, speed,sprite,60,80);
         
     }
 
@@ -23,8 +22,9 @@ public class SpaceShip extends TouchableGameObject{
     
     public void shoot(){
         if(isBulletReady()){
-            super.shoot(10,new ImageIcon(this.getClass().getClassLoader().getResource("shot.gif")));
+            super.shoot(5,50,50,new ImageIcon(this.getClass().getClassLoader().getResource("egg.png")));
             this.setBulletReady(false);
         }
     }
+
 }

@@ -34,4 +34,10 @@ public class Alien extends TouchableGameObject{
         this.points = points;
     }
     
+    public void shoot(){
+        if(isBulletReady()){
+            super.shoot(3,10,10,new ImageIcon(this.getClass().getClassLoader().getResource("shotAlien.png")));
+            this.setBulletReady(false);
+        }
+    }
 }

@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
@@ -33,7 +34,11 @@ public class GameController extends Observable implements ActionListener{
     
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
-
+    private int nbBuilding = 4;
+    private int nbChancesBulletAlien = 5000;
+    
+    private int niveau;
+    
     public GameController() {
         this.aliens = new ArrayList();
         initGameControllerObjects();
@@ -43,9 +48,11 @@ public class GameController extends Observable implements ActionListener{
 
     private void initGameControllerObjects() {
         this.player = new Player(0, 3, "BestPlayer");
-        this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
+        this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        this.buildings = new ArrayList<>();
         buildAliensList();
+        buildBuildingList();
     }
 
     public void pauseGame() {
@@ -96,19 +103,27 @@ public class GameController extends Observable implements ActionListener{
     
     private void buildAliensList(){
         List<Alien> listAliens;
-        ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"));
+        ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("fox.png"));
         
         for(int x = 1;x<nbAliensLigne+1;x++){
             listAliens = new ArrayList<>();
             for(int y = 2;y<nbAliensColonnes+2;y++){
-                listAliens.add(new Alien(x*60, y*50, 50, 10, alienIcon));
+                listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
             }
             this.aliens.add(listAliens);
         }
     }
     
+    private void buildBuildingList(){
+        double x = 800 / (getNbBuilding()) - 29.5;
+        for(int i = 1; i<getNbBuilding()+1;i++){
+            buildings .add(new Building(x*i, 500, 6,new ImageIcon(this.getClass().getClassLoader().getResource("poulailler.png"))));
+        }
+    }
+    
     private void moveAliens(){
         boolean shouldMoveDown = false;
+        Random rand = new Random();
         if(this.aliens.get(this.aliens.size() - 1).get(0).getX()>856){
             this.isAliensOnTheWall = -1;
             shouldMoveDown = true;
@@ -120,11 +135,16 @@ public class GameController extends Observable implements ActionListener{
         this.aliens.forEach((ls) -> {
             ls.forEach((a) -> {
                 a.setX(a.getX() + a.getSpeed()*isAliensOnTheWall);
+                if(rand.nextInt()%nbChancesBulletAlien == 0){
+                    a.shoot();
+                }
+                
+                if(a.getBullet()!= null){
+                    a.getBullet().move(false);
+                }
             });
         });
         
-        
-        boolean perdu = false;
         if(shouldMoveDown){
             for(int j = 0;j<aliens.size();j++){
                 for(int i = 0;i<aliens.get(j).size();i++){
@@ -217,5 +237,12 @@ public class GameController extends Observable implements ActionListener{
 
     public boolean isPause() {
         return pause;
+    }
+
+    /**
+     * @return the nbBuilding
+     */
+    public int getNbBuilding() {
+        return nbBuilding;
     }
 }

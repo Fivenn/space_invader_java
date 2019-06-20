@@ -7,8 +7,8 @@ public abstract class GameObject {
     private ImageIcon sprite;
     private double x;
     private double y;
-    private double width;
-    private double heigth;
+    double width;
+    double heigth;
     
     public GameObject(double x, double y,ImageIcon sprite) {
         this.x = x;
@@ -29,6 +29,9 @@ public abstract class GameObject {
         return this.sprite.getImage();
     }
     
+    public void setSprite(ImageIcon sprite){
+        this.sprite = sprite;
+    }
     /**
      * @return the x
      */
