@@ -97,7 +97,7 @@ public class GameController extends Observable implements ActionListener{
         for(int x = 1;x<nbAliensLigne+1;x++){
             listAliens = new ArrayList<>();
             for(int y = 2;y<nbAliensColonnes+2;y++){
-                listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
+                listAliens.add(new Alien(x*60, y*50, 50, 10, alienIcon));
             }
             this.aliens.add(listAliens);
         }
@@ -119,21 +119,18 @@ public class GameController extends Observable implements ActionListener{
             });
         });
         
+        
+        boolean perdu = false;
         if(shouldMoveDown){
-            this.aliens.forEach((ls) -> {
-                ls.forEach((a) -> {
-                    a.setY(a.getY() + 50);
-                    if(a.getY()>600){
-                        this.player.setLifePoints(this.player.getLifePoints()-1);
-
-                        if(this.player.getLifePoints()<0){
-                            this.timer.stop();
-                            
-                        }
-                        System.out.println(this.player.getLifePoints());
+            for(int j = 0;j<aliens.size();j++){
+                for(int i = 0;i<aliens.get(j).size();i++){
+                    aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
+                    if(aliens.get(j).get(i).getY()>550){
+                        this.gameOver();
+                        break;
                     }
-                });
-            });
+                }
+            };
             
         }
     }
