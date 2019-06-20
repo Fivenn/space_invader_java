@@ -16,6 +16,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private AlienSpaceShip alienSpaceShip;
     private List<Building> buildingList;
     Image spaceShipImage;
+    JLabel gamerOver;
     
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -29,14 +30,13 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
         InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
 
-        JLabel gamerOver = new JLabel("GAME OVER");
+        gamerOver= new JLabel("GAME OVER");
         gamerOver.setForeground(Color.white);
         gamerOver.setBackground(Color.black);
         gamerOver.setFont(gamerOver.getFont().deriveFont(64f));
 
         this.setPreferredSize(new Dimension(900, 1000));
         this.setLayout(new BorderLayout());
-        this.add(gamerOver, BorderLayout.CENTER);
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
     }
@@ -109,6 +109,9 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         repaint();
+        if() {
+            this.add(this.add(gamerOver), BorderLayout.CENTER);
+        }
     }
 
 }
