@@ -28,7 +28,7 @@ public class GameController extends Observable implements ActionListener{
     private AlienSpaceShip alienSpaceShip;
     
     private Timer timer;
-    private int isAliensOnTheWall;
+    private int isAliensOnTheWall = 1;
     private boolean pause = false;
 
     public GameController() {
@@ -37,15 +37,7 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.aliens = new ArrayList();
         buildAliensList();
-        
-        int i = 0;
-        for(List<Alien> l : aliens){
-            for(Alien a : l){
-                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
-            }
-            i++;
-        }
-            
+          
         this.timer = new Timer(5, this);
         this.timer.start();
     }
@@ -71,14 +63,7 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
 
         buildAliensList();
-        int i = 0;
-        for(List<Alien> l : aliens){
-            for(Alien a : l){
-                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
-            }
-            i++;
-        }
-
+        
         this.timer.restart();
     }
 
@@ -156,14 +141,19 @@ public class GameController extends Observable implements ActionListener{
          
     @Override
     public void actionPerformed(ActionEvent e) {
-        //timer.stop();
-        moveAliens();
-        if(this.getSpaceShip().getBullet() != null){
-            this.getSpaceShip().getBullet().move(true);  
-            
+        if(!this.aliens.isEmpty()){
+            moveAliens();
+            if(this.getSpaceShip().getBullet() != null){
+                this.getSpaceShip().getBullet().move(true);  
+
+            }
+            this.setChanged();
+            this.notifyObservers();
+        }else{
+            resetGameController();
         }
-        this.setChanged();
-        this.notifyObservers();
+        
+        
     }
 
     

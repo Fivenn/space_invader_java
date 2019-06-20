@@ -82,25 +82,24 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
 
     private void drawBullet(Graphics g) {
-        System.out.println("Oui");
         Image i = this.spaceShip.getBullet().loadImage();
-        this.checkCollision(spaceShip.getBullet());
         g.drawImage(i, (int) this.spaceShip.getBullet().getX(), (int) this.spaceShip.getBullet().getY(), (int) this.spaceShip.getBullet().getWidth(), (int) this.spaceShip.getBullet().getHeigth(), this);
+        this.checkCollision(spaceShip.getBullet());
     }
     
     public void checkCollision(DynamicGameObject dgo){
         
         List<Alien> l;
-
         Rectangle dgoR = new Rectangle((int)dgo.getX(),(int) dgo.getY(), (int)dgo.getWidth(), (int)dgo.getHeigth());
-        System.out.println("x : "+dgoR.getX()+" y :"+dgo.getY()+" w : "+dgo.getWidth()+" h : "+dgo.getHeigth() + " ____________________");
 
-        for(int i = 0;i<alienList.size()-1;i++){
+        for(int i = 0;i<alienList.size();i++){
             l = this.alienList.get(i);
-            System.out.println("x : "+l.get(l.size()-1).getX()+" y :"+l.get(l.size()-1).getY()+" w : "+l.get(l.size()-1).getWidth()+" h : "+l.get(l.size()-1).getHeigth());
-            if(dgoR.intersects(new Rectangle((int)l.get(l.size()-1).getX(),(int) l.get(l.size()-1).getY(), (int)l.get(l.size()-1).getWidth(), (int)l.get(l.size()-1).getHeigth()))){
+            if(l.size()-1>=0 && dgoR.intersects(new Rectangle((int)l.get(l.size()-1).getX(),(int) l.get(l.size()-1).getY(), (int)l.get(l.size()-1).getWidth(), (int)l.get(l.size()-1).getHeigth()))){
                 dgo.onCollision();
                 this.alienList.get(i).remove(l.size()-1);
+                if(this.alienList.get(i).isEmpty()){
+                    this.alienList.remove(i);
+                }
                 break; 
             }
 
