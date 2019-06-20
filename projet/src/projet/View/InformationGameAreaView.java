@@ -39,6 +39,5 @@ public class InformationGameAreaView extends JPanel {
         this.add(scoreLabel);
         this.add(lifeLabel);
         this.add(pseudoPlayerLabel);
-
     }
 }

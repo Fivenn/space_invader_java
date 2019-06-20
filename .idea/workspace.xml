@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/Controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/PlaygroundAreaView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/space_invaders_project/projet/View/PlaygroundAreaView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,26 +18,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="48">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="e#463#464#0" expanded="true" />
                 <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#2135#2136#0" expanded="true" />
-                <element signature="e#2171#2172#0" expanded="true" />
+                <element signature="e#1937#1938#0" expanded="true" />
+                <element signature="e#1973#1974#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -67,14 +57,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
+            <state relative-caret-position="592">
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4078#4079#0" expanded="true" />
+                <element signature="e#4010#4011#0" expanded="true" />
+                <element signature="e#4035#4036#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="33" column="21" selection-start-line="33" selection-end-line="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,13 +157,13 @@
         <option value="$PROJECT_DIR$/projet/src/projet/View/PlaygroundArea.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/InformationArea.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/playGame.java" />
-        <option value="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/LeaderBoardView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/GameObject.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Bullet.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/HelpView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/MainView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/InformationAreaView.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" />
       </list>
@@ -314,7 +317,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33056000" />
+    <option name="totallyTimeSpent" value="34186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
@@ -440,16 +443,6 @@
     <entry file="file://$USER_HOME$/IdeaProjects/tp3_swing/src/Convertisseur.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-208">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -589,26 +582,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        <state relative-caret-position="517">
+          <caret line="33" column="21" selection-start-line="33" selection-end-line="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4078#4079#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="48">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="e#463#464#0" expanded="true" />
             <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2171#2172#0" expanded="true" />
+            <element signature="e#1937#1938#0" expanded="true" />
+            <element signature="e#1973#1974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4010#4011#0" expanded="true" />
+            <element signature="e#4035#4036#0" expanded="true" />
           </folding>
         </state>
       </provider>
