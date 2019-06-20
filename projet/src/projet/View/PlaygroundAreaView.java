@@ -131,7 +131,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeigth()))){
                 dgo.onCollision();
                 this.gameController.getPlayer().removeLifePoints(1);
-        } 
+        }
         
     }
         

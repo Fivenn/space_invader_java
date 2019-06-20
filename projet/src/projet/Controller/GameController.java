@@ -74,7 +74,6 @@ public class GameController extends Observable implements ActionListener{
     }
 
     public void gameOver() {
-
     }
 
     /**
@@ -132,7 +131,7 @@ public class GameController extends Observable implements ActionListener{
         }
         
     }
-    
+
     private void moveAliens(){
         boolean shouldMoveDown = false;
         Random rand = new Random();
