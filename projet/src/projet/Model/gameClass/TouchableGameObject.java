@@ -27,7 +27,7 @@ public abstract class TouchableGameObject extends DynamicGameObject{
     }
     
     protected void shoot(int speedBullet,ImageIcon bulletSprite){
-        this.setBullet(new Bullet(getX(), getY(), speedBullet, bulletSprite,this));
+        this.setBullet(new Bullet(getX()+this.getWidth()/3, getY(), speedBullet, bulletSprite,this));
     }
     /**
      * @return the bulletReady

@@ -19,7 +19,7 @@ public class Bullet extends DynamicGameObject{
         this.shooter = shooter;
     }
     
-    private void onCollision(){
+    public void onCollision(){
         this.shooter.setBullet(null);
         this.shooter.setBulletReady(true);
     }

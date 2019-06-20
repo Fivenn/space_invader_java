@@ -82,8 +82,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private void drawBullet(Graphics g) {
         Image i = this.spaceShip.getBullet().loadImage();
         g.drawImage(i, (int) this.spaceShip.getBullet().getX(), (int) this.spaceShip.getBullet().getY(), (int) this.spaceShip.getBullet().getWidth(), (int) this.spaceShip.getBullet().getHeigth(), this);
-        System.out.println(this.spaceShip.getBullet().getX() + " y : " + this.spaceShip.getBullet().getY());
-
     }
         
     @Override

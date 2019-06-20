@@ -37,8 +37,16 @@ public class GameController extends Observable implements ActionListener{
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.aliens = new ArrayList();
         buildAliensList();
-
-        this.timer = new Timer(15, this);
+        
+        int i = 0;
+        for(List<Alien> l : aliens){
+            for(Alien a : l){
+                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
+            }
+            i++;
+        }
+            
+        this.timer = new Timer(100, this);
         this.timer.start();
     }
 
@@ -95,7 +103,7 @@ public class GameController extends Observable implements ActionListener{
         List<Alien> listAliens;
         ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"));
         
-        for(int x = 1;x<11;x++){
+        for(int x = 1;x<9;x++){
             listAliens = new ArrayList<>();
             for(int y = 2;y<7;y++){
                 listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
@@ -142,12 +150,44 @@ public class GameController extends Observable implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         moveAliens();
         if(this.getSpaceShip().getBullet() != null){
+            this.checkCollision(this.getSpaceShip().getBullet());
             this.getSpaceShip().getBullet().move(true);
+            
         }
         this.setChanged();
         this.notifyObservers();
     }
     
+    
+    public void checkCollision(DynamicGameObject dgo){
+        int i = 0;
+        boolean stop = false;
+        List<Alien> l;
+        Alien al;
+        int alx ;
+        int aly;
+        int x = (int) dgo.getX();
+        int y = (int) dgo.getY();
+        while(i<aliens.size()-1 && !stop){
+            
+            l = this.aliens.get(i);
+            al = l.get(l.size()-1);
+            alx = (int) al.getX(); 
+            aly = (int) al.getY(); 
+
+            if(alx <= x && alx + al.getWidth()>= x){
+                System.out.println("i : "+i+" "+" al.getY() : " +al.getY() + "dgo.getY  : "+ dgo.getY() +(al.getY() + al.getHeigth()<= dgo.getY()));
+
+                if(aly <= y && aly + al.getHeigth()>= y){
+                    stop = true;
+                    System.out.println(" i : "+i+" x :"+dgo.getX()+ " y : "+dgo.getY());
+                    this.timer.stop();
+                
+                }
+            }
+            i+=1;
+        }
+    }
     /**
      * @return the player
      */
