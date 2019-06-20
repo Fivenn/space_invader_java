@@ -30,6 +30,9 @@ public class GameController extends Observable implements ActionListener{
     private Timer timer;
     private int isAliensOnTheWall = 1;
     private boolean pause = false;
+    
+    private int nbAliensLigne = 2;
+    private int nbAliensColonnes = 2;
 
     public GameController() {
         this.aliens = new ArrayList();
@@ -48,11 +51,10 @@ public class GameController extends Observable implements ActionListener{
     public void pauseGame() {
         if (this.pause) {
             this.timer.start();
-            this.pause = false;
         } else {
             this.timer.stop();
-            this.pause = true;
         }
+        this.pause = !pause;
     }
 
     public void resetGameController() {
@@ -92,9 +94,9 @@ public class GameController extends Observable implements ActionListener{
         List<Alien> listAliens;
         ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif"));
         
-        for(int x = 1;x<9;x++){
+        for(int x = 1;x<nbAliensLigne+1;x++){
             listAliens = new ArrayList<>();
-            for(int y = 2;y<7;y++){
+            for(int y = 2;y<nbAliensColonnes+2;y++){
                 listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
             }
             this.aliens.add(listAliens);
@@ -123,6 +125,7 @@ public class GameController extends Observable implements ActionListener{
                     a.setY(a.getY() + 50);
                     if(a.getY()>600){
                         this.player.setLifePoints(this.player.getLifePoints()-1);
+
                         if(this.player.getLifePoints()<0){
                             this.timer.stop();
                             
