@@ -19,10 +19,12 @@ public class Bullet extends DynamicGameObject{
         this.shooter = shooter;
     }
     
+    @Override
     public void onCollision(){
         this.shooter.setBullet(null);
         this.shooter.setBulletReady(true);
     }
+    
     
     @Override
     public void move(boolean up) {

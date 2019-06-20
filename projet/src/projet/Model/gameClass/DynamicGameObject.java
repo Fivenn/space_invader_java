@@ -29,7 +29,9 @@ public class DynamicGameObject extends GameObject {
             setX(getX() + getSpeed());
         }
     }
-
+    
+    public void onCollision(){
+    }
     
 
     /**

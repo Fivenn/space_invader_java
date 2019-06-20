@@ -15,9 +15,10 @@ public class Alien extends TouchableGameObject{
     private int points;
     
     public Alien(double x, double y, int speed, int points, ImageIcon sprite) {
-        super(x, y, speed,sprite,8,8);
+        super(x, y, speed,sprite,50,50);
         this.points = points;
     }
+    
 
     /**
      * @return the points

@@ -28,24 +28,11 @@ public class GameController extends Observable implements ActionListener{
     private AlienSpaceShip alienSpaceShip;
     
     private Timer timer;
-    private int isAliensOnTheWall = 1;
+    private int isAliensOnTheWall;
     private boolean pause = false;
 
     public GameController() {
-        this.player = new Player(0, 3, "BestPlayer");
-        this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
-        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
-        this.aliens = new ArrayList();
-        buildAliensList();
-        
-        int i = 0;
-        for(List<Alien> l : aliens){
-            for(Alien a : l){
-                System.out.println("Liste "+i+" x : "+a.getX()+ " y :"+ a.getY());
-            }
-            i++;
-        }
-            
+        this.resetGameController();
         this.timer = new Timer(100, this);
         this.timer.start();
     }
@@ -62,8 +49,9 @@ public class GameController extends Observable implements ActionListener{
 
     public void resetGameController() {
         this.isAliensOnTheWall = 1;
-        this.pause = false;
-        this.aliens.clear();
+        this.pause = false;   
+        this.aliens = new ArrayList();
+
 
         this.player = new Player(0, 3, "BestPlayer");
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
@@ -145,46 +133,18 @@ public class GameController extends Observable implements ActionListener{
          
     @Override
     public void actionPerformed(ActionEvent e) {
+        //timer.stop();
         moveAliens();
         if(this.getSpaceShip().getBullet() != null){
-            this.checkCollision(this.getSpaceShip().getBullet());
-            this.getSpaceShip().getBullet().move(true);
+            this.getSpaceShip().getBullet().move(true);  
             
         }
         this.setChanged();
         this.notifyObservers();
     }
+
     
     
-    public void checkCollision(DynamicGameObject dgo){
-        int i = 0;
-        boolean stop = false;
-        List<Alien> l;
-        Alien al;
-        int alx ;
-        int aly;
-        int x = (int) dgo.getX();
-        int y = (int) dgo.getY();
-        while(i<aliens.size()-1 && !stop){
-            
-            l = this.aliens.get(i);
-            al = l.get(l.size()-1);
-            alx = (int) al.getX(); 
-            aly = (int) al.getY(); 
-
-            if(alx <= x && alx + al.getWidth()>= x){
-                System.out.println("i : "+i+" "+" al.getY() : " +al.getY() + "dgo.getY  : "+ dgo.getY() +(al.getY() + al.getHeigth()<= dgo.getY()));
-
-                if(aly <= y && aly + al.getHeigth()>= y){
-                    stop = true;
-                    System.out.println(" i : "+i+" x :"+dgo.getX()+ " y : "+dgo.getY());
-                    this.timer.stop();
-                
-                }
-            }
-            i+=1;
-        }
-    }
     /**
      * @return the player
      */
