@@ -33,7 +33,6 @@ public class GameController extends Observable implements ActionListener{
 
     public GameController() {
         this.aliens = new ArrayList();
-        buildAliensList();
         initGameControllerObjects();
         this.timer = new Timer(5, this);
         this.timer.start();
@@ -43,6 +42,7 @@ public class GameController extends Observable implements ActionListener{
         this.player = new Player(0, 3, "BestPlayer");
         this.spaceShip = new SpaceShip(400.0, 600.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
+        buildAliensList();
     }
 
     public void pauseGame() {
@@ -60,7 +60,6 @@ public class GameController extends Observable implements ActionListener{
         this.pause = false;
         this.aliens .clear();
         initGameControllerObjects();
-        buildAliensList();
         this.timer.restart();
     }
 
