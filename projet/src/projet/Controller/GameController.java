@@ -40,6 +40,7 @@ public class GameController extends Observable implements ActionListener{
     private int niveau;
     
     public GameController() {
+        this.niveau = 1;
         this.aliens = new ArrayList();
         initGameControllerObjects();
         this.timer = new Timer(5, this);
@@ -108,17 +109,28 @@ public class GameController extends Observable implements ActionListener{
         for(int x = 1;x<nbAliensLigne+1;x++){
             listAliens = new ArrayList<>();
             for(int y = 2;y<nbAliensColonnes+2;y++){
-                listAliens.add(new Alien(x*60, y*50, 1, 10, alienIcon));
-            }
+                listAliens.add(new Alien(x*60, y*50, 1*(niveau/5)+1, 10, alienIcon));
+            }   
             this.aliens.add(listAliens);
         }
     }
     
+    public void changementDeNiveau(){
+        Random rand = new Random();
+        this.niveau +=1;
+        this.nbAliensColonnes = (rand.nextInt()%this.niveau)%10 + 2;
+        this.nbAliensLigne = (rand.nextInt()%this.niveau)%10 + 2;
+        this.nbChancesBulletAlien = (rand.nextInt()%this.niveau)%3000 - niveau*100;
+    }
+    
     private void buildBuildingList(){
-        double x = 800 / (getNbBuilding()) - 29.5;
-        for(int i = 1; i<getNbBuilding()+1;i++){
-            buildings .add(new Building(x*i, 500, 6,new ImageIcon(this.getClass().getClassLoader().getResource("poulailler.png"))));
+        if(getNbBuilding() !=0){
+            double x = 800 / (getNbBuilding()) - 29.5;
+            for(int i = 1; i<getNbBuilding()+1;i++){
+                buildings .add(new Building(x*i, 500, 6,new ImageIcon(this.getClass().getClassLoader().getResource("poulailler.png"))));
+            } 
         }
+        
     }
     
     private void moveAliens(){
@@ -170,6 +182,7 @@ public class GameController extends Observable implements ActionListener{
             this.setChanged();
             this.notifyObservers();
         }else{
+            changementDeNiveau();
             resetGameController();
         }
         
