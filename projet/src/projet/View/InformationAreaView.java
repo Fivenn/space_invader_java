@@ -4,6 +4,7 @@ import projet.Controller.GameController;
 
 import javax.swing.*;
 import java.awt.*;
+import static java.awt.BorderLayout.CENTER;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -87,7 +88,7 @@ public class InformationAreaView extends JPanel {
         panelHelpAndQuit.add(quitButton);
         
         this.add(panelHelpAndQuit,NORTH);
-        //this.add(new LeaderBoardView(this.gameController),CENTER);
+        this.add(new LeaderBoardView(this.gameController),CENTER);
         this.add(newGameButton,SOUTH);
     }
 }
