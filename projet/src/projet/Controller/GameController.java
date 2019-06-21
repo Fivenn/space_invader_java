@@ -140,26 +140,27 @@ public class GameController extends Observable implements ActionListener{
     private void moveAliens(){
         boolean shouldMoveDown = false;
         Random rand = new Random();
-        if(this.aliens.get(this.aliens.size() - 1).get(0).getX()>856){
-            this.isAliensOnTheWall = -1;
-            shouldMoveDown = true;
-        }else if(this.aliens.get(0).get(0).getX()<1){
-            this.isAliensOnTheWall = 1;
-            shouldMoveDown = true;
-        }
         
-        this.aliens.forEach((ls) -> {
-            ls.forEach((a) -> {
-                a.setX(a.getX() + a.getSpeed()*isAliensOnTheWall);
-                if(rand.nextInt()%nbChancesBulletAlien == 0){
-                    a.shoot();
-                }
-                
-                if(a.getBullet()!= null){
-                    a.getBullet().move(false);
-                }
+            if(this.aliens.get(this.aliens.size() - 1).get(0).getX()>856){
+                this.isAliensOnTheWall = -1;
+                shouldMoveDown = true;
+            }else if(this.aliens.get(0).get(0).getX()<1){
+                this.isAliensOnTheWall = 1;
+                shouldMoveDown = true;
+            }
+
+            this.aliens.forEach((ls) -> {
+                ls.forEach((a) -> {
+                    a.setX(a.getX() + a.getSpeed()*isAliensOnTheWall);
+                    if(rand.nextInt()%nbChancesBulletAlien == 0){
+                        a.shoot();
+                    }
+
+                    if(a.getBullet()!= null){
+                        a.getBullet().move(false);
+                    }
+                });
             });
-        });
         
         if(shouldMoveDown){
             for(int j = 0;j<aliens.size();j++){
@@ -203,7 +204,7 @@ public class GameController extends Observable implements ActionListener{
          
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(!this.aliens.isEmpty()){
+        if(!this.aliens.isEmpty() && !this.aliens.get(this.aliens.size() - 1).isEmpty()){
             moveAliens();
             if(this.getSpaceShip().getBullet() != null){
                 this.getSpaceShip().getBullet().move(true);
