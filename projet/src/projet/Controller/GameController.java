@@ -21,6 +21,9 @@ public class GameController extends Observable implements ActionListener{
     public List<List<Alien>> getAliens() {
         return aliens;
     }
+    
+    private boolean spaceTouch = false;
+    private int arrowTouch = 0;
 
     private Player player;
     private SpaceShip spaceShip;
@@ -46,11 +49,16 @@ public class GameController extends Observable implements ActionListener{
         this.aliens = new ArrayList();
         this.buildings = new ArrayList<>();
         this.player = new Player(0, 3, "BestPlayer");
-        buildBuildingList();
-        this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
-        buildAliensList();
-        this.timer = new Timer(5, this);
+        initGameControllerObjects();
+        this.timer = new Timer(3, this);
         this.timer.start();
+    }
+
+    private void initGameControllerObjects() {
+        this.spaceShip = new SpaceShip(400.0, 580.0, 15, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
+        this.buildings = new ArrayList<>();
+        buildAliensList();
+        buildBuildingList();
     }
 
     public void pauseGame() {
@@ -86,24 +94,15 @@ public class GameController extends Observable implements ActionListener{
         this.aliens = aliens;
     }
 
-    public void actionJoueur(int keyCode){
-        if(keyCode == KeyEvent.VK_P || !this.pause){
-            switch(keyCode){
-                case KeyEvent.VK_LEFT:
-                    getSpaceShip().move(true);
-                    break;
-                case KeyEvent.VK_RIGHT :
-                    getSpaceShip().move(false);
-                    break;
-                case KeyEvent.VK_SPACE :
-                    getSpaceShip().shoot();
-                    break;
-                case KeyEvent.VK_P:
-                    this.pauseGame();
-                    break;
-                default:
-                    break;
+    public void actionJoueur(){
+        if(!this.pause){
+            if(getArrowTouch() != 0){
+                this.getSpaceShip().move(getArrowTouch() == -1);
             }
+            if(isSpaceTouch()){
+                this.getSpaceShip().shoot();
+            }
+                    
         }
         this.setChanged();
         this.notifyObservers();
@@ -317,5 +316,33 @@ public class GameController extends Observable implements ActionListener{
     public void setGameIsOver(boolean gameIsOver) {
         this.pauseGame();
         isGameIsOver = gameIsOver;
+    }
+
+    /**
+     * @return the spaceTouch
+     */
+    public boolean isSpaceTouch() {
+        return spaceTouch;
+    }
+
+    /**
+     * @param spaceTouch the spaceTouch to set
+     */
+    public void setSpaceTouch(boolean spaceTouch) {
+        this.spaceTouch = spaceTouch;
+    }
+
+    /**
+     * @return the arrowTouch
+     */
+    public int getArrowTouch() {
+        return arrowTouch;
+    }
+
+    /**
+     * @param arrowTouch the arrowTouch to set
+     */
+    public void setArrowTouch(int arrowTouch) {
+        this.arrowTouch = arrowTouch;
     }
 }
