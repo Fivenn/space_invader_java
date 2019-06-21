@@ -77,5 +77,8 @@ public class MainView extends JFrame implements KeyListener, Observer {
         if(gameController.isGameIsOver()){
             this.changeView1Toview2(this.playgroundAreaView, this.gameOverView);
         }
+        if(!gameController.isGameIsOver()){
+            this.changeView1Toview2(this.gameOverView, this.playgroundAreaView);
+        }
     }
 }

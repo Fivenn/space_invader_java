@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projet/src/projet/View/GameOverView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +19,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="400">
+              <caret line="182" column="96" selection-start-line="182" selection-start-column="96" selection-end-line="182" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
                 <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#2363#2364#0" expanded="true" />
-                <element signature="e#2399#2400#0" expanded="true" />
+                <element signature="e#2362#2363#0" expanded="true" />
+                <element signature="e#2398#2399#0" expanded="true" />
                 <element signature="e#7358#7359#0" expanded="true" />
                 <element signature="e#7387#7388#0" expanded="true" />
                 <element signature="e#7486#7487#0" expanded="true" />
@@ -73,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="54" column="34" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="34" />
+            <state relative-caret-position="453">
+              <caret line="77" column="59" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="59" />
               <folding>
                 <element signature="e#0#1743#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -99,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2736">
-              <caret line="160" column="43" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="43" />
+              <caret line="166" column="43" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -179,11 +176,11 @@
       <find>notify</find>
       <find>help</find>
       <find>gamerOverLabel</find>
-      <find>alienSpaceShip</find>
       <find>isGameIsOver</find>
       <find>pause</find>
       <find>scoreLabel</find>
       <find>points</find>
+      <find>alienSpaceShip</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -354,12 +351,12 @@
       <workItem from="1560945443485" duration="4872000" />
       <workItem from="1561011189213" duration="2617000" />
       <workItem from="1561097962706" duration="4589000" />
-      <workItem from="1561109618482" duration="13554000" />
+      <workItem from="1561109618482" duration="14481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56474000" />
+    <option name="totallyTimeSpent" value="57401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
@@ -374,7 +371,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21497326" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21497326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26096258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -627,7 +624,7 @@
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2736">
-          <caret line="160" column="43" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="43" />
+          <caret line="166" column="43" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -643,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="54" column="34" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="34" />
+        <state relative-caret-position="453">
+          <caret line="77" column="59" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="59" />
           <folding>
             <element signature="e#0#1743#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -654,14 +651,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="400">
+          <caret line="182" column="96" selection-start-line="182" selection-start-column="96" selection-end-line="182" selection-end-column="96" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2399#2400#0" expanded="true" />
+            <element signature="e#2362#2363#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
             <element signature="e#7358#7359#0" expanded="true" />
             <element signature="e#7387#7388#0" expanded="true" />
             <element signature="e#7486#7487#0" expanded="true" />
