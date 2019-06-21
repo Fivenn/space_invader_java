@@ -36,7 +36,7 @@ public class GameController extends Observable implements ActionListener{
     private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
     private boolean isGameIsOver = false;
-    
+
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
     private final int nbBuilding = 4;
@@ -47,6 +47,7 @@ public class GameController extends Observable implements ActionListener{
     public GameController() {
         this.niveau = 1;
         this.aliens = new ArrayList();
+        this.buildings = new ArrayList<>();
         this.player = new Player(0, 3, "BestPlayer");
         initGameControllerObjects();
         this.timer = new Timer(3, this);
@@ -75,13 +76,15 @@ public class GameController extends Observable implements ActionListener{
         this.pause = false;
         this.isGameIsOver = false;
         this.aliens .clear();
-        initGameControllerObjects();
+        this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
+        buildAliensList();
         this.timer.restart();
     }
 
     public void resetGameControllerWhenNewGame() {
         this.resetGameController();
         this.player = new Player(0, 3, "BestPlayer");
+        buildBuildingList();
     }
 
     /**

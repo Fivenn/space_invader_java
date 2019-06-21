@@ -165,7 +165,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
         repaint();
         if(this.gameController.isGameIsOver()) {
-            System.out.println("projet.View.PlaygroundAreaView.update()");
         }
 
     }
