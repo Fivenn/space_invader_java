@@ -89,18 +89,23 @@ public class GameController extends Observable implements ActionListener{
     }
 
     public void actionJoueur(int keyCode){
-        switch(keyCode){
-            case KeyEvent.VK_LEFT:
-                getSpaceShip().move(true);
-                break;
-            case KeyEvent.VK_RIGHT :
-                getSpaceShip().move(false);
-                break;
-            case KeyEvent.VK_SPACE :
-                getSpaceShip().shoot();
-                break;
-            default:
-                break;
+        if(keyCode == KeyEvent.VK_P || !this.pause){
+            switch(keyCode){
+                case KeyEvent.VK_LEFT:
+                    getSpaceShip().move(true);
+                    break;
+                case KeyEvent.VK_RIGHT :
+                    getSpaceShip().move(false);
+                    break;
+                case KeyEvent.VK_SPACE :
+                    getSpaceShip().shoot();
+                    break;
+                case KeyEvent.VK_P:
+                    this.pauseGame();
+                    break;
+                default:
+                    break;
+            }
         }
         this.setChanged();
         this.notifyObservers();
@@ -123,7 +128,7 @@ public class GameController extends Observable implements ActionListener{
         Random rand = new Random();
         this.niveau +=1;
         this.nbAliensColonnes = (rand.nextInt()%this.niveau)%10 + 2;
-        this.nbAliensLigne = (rand.nextInt()%this.niveau)%10 + 2;
+        this.nbAliensLigne = (rand.nextInt()%this.niveau)%6 + 2;
         this.nbChancesBulletAlien = (rand.nextInt()%this.niveau)%3000 - niveau*100;
     }
     
