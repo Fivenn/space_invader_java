@@ -6,25 +6,31 @@
 package projet.View;
 
 import projet.Controller.GameController;
-import projet.Model.gameClass.Alien;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.*;
 
 /**
  *
  * @author mallou
  */
-public class MainView extends JFrame implements KeyListener{
+public class MainView extends JFrame implements KeyListener, Observer {
     private GameController gameController;
+    private PlaygroundAreaView playgroundAreaView;
+    private InformationAreaView informationAreaView;
+    private HelpView helpView;
 
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
+        this.gameController.addObserver(this);
 
-        PlaygroundAreaView playgroundAreaView = new PlaygroundAreaView(this.gameController);
-        InformationAreaView informationAreaView = new InformationAreaView(this.gameController);
+        playgroundAreaView = new PlaygroundAreaView(this.gameController);
+        informationAreaView = new InformationAreaView(this.gameController);
+        helpView = new HelpView(this.gameController);
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
@@ -43,12 +49,11 @@ public class MainView extends JFrame implements KeyListener{
         this.requestFocus();
     }
 
-    private void changePlaygroundAreaViewToHelpView() {
-        HelpView helpView = new HelpView(this.gameController);
-        this.setContentPane(helpView);
-        this.revalidate();
+    public void changePlaygroundAreaViewToGameOverView() {
+        getContentPane().remove(playgroundAreaView);
+        getContentPane().add(helpView);
+        validate();
     }
-
 
 
     @Override
@@ -64,5 +69,11 @@ public class MainView extends JFrame implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {}
-    
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if(gameController.isGameIsOver()){
+            this.changePlaygroundAreaViewToGameOverView();
+        }
+    }
 }
