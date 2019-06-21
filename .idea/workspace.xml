@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+            <state relative-caret-position="211">
+              <caret line="184" column="8" selection-start-line="182" selection-start-column="13" selection-end-line="184" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
@@ -67,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="71" column="13" lean-forward="true" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state relative-caret-position="672">
+              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
               <folding>
                 <element signature="e#0#1743#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -95,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2736">
-              <caret line="166" column="43" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="43" />
+            <state relative-caret-position="489">
+              <caret line="168" column="43" selection-start-line="168" selection-start-column="43" selection-end-line="168" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -208,8 +210,8 @@
         <option value="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Model/gameClass/Player.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/GameOverView.java" />
-        <option value="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/View/MainView.java" />
+        <option value="$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java" />
         <option value="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" />
       </list>
     </option>
@@ -351,12 +353,12 @@
       <workItem from="1560945443485" duration="4872000" />
       <workItem from="1561011189213" duration="2617000" />
       <workItem from="1561097962706" duration="4589000" />
-      <workItem from="1561109618482" duration="15375000" />
+      <workItem from="1561109618482" duration="16803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58295000" />
+    <option name="totallyTimeSpent" value="59723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
@@ -371,7 +373,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21497326" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21497326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26096258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,6 +428,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java</url>
+          <line>159</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Controller/ControllerTmp.java" />
@@ -593,13 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
-          <caret line="166" column="43" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/GameOverView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -607,13 +614,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -638,21 +638,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/Model/gameClass/AlienSpaceShip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="71" column="13" lean-forward="true" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#1743#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/PlaygroundAreaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="168" column="43" selection-start-line="168" selection-start-column="43" selection-end-line="168" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+        <state relative-caret-position="211">
+          <caret line="184" column="8" selection-start-line="182" selection-start-column="13" selection-end-line="184" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
@@ -685,6 +688,17 @@
             <element signature="e#8798#8799#0" expanded="true" />
             <element signature="e#8829#8830#0" expanded="true" />
             <element signature="e#8857#8858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/projet/View/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#1743#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,6 @@
 package projet.View;
 
+import com.sun.tools.javac.Main;
 import projet.Controller.GameController;
 import projet.Model.gameClass.*;
 
@@ -165,6 +166,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
         repaint();
         if(this.gameController.isGameIsOver()) {
+            this.gameController.gameOver();
         }
 
     }

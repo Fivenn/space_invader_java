@@ -74,6 +74,7 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        System.out.println("cc "+gameController.isGameIsOver());
         if(gameController.isGameIsOver()){
             this.changeView1Toview2(this.playgroundAreaView, this.gameOverView);
         }

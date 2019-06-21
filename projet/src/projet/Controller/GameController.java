@@ -37,7 +37,7 @@ public class GameController extends Observable implements ActionListener{
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
     private final int nbBuilding = 4;
-    private int nbChancesBulletAlien = 5000;
+    private int nbChancesBulletAlien = 2;
     private int nbChancesSpawnVaisseau = 10000;
     private int niveau;
     
@@ -140,6 +140,12 @@ public class GameController extends Observable implements ActionListener{
         
     }
 
+
+    public void gameOver() {
+        this.setChanged();
+        this.notifyObservers();
+    }
+
     private void moveAliens(){
         boolean shouldMoveDown = false;
         Random rand = new Random();
@@ -216,7 +222,6 @@ public class GameController extends Observable implements ActionListener{
         }else{
             this.pauseGame();
         }
-
     }
     
     /**
