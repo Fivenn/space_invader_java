@@ -15,13 +15,17 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private List<List<Alien>> alienList;
     private List<Building> buildingList;
     Image spaceShipImage;
-
+    Image backgroundImage;
     public PlaygroundAreaView(GameController gameController) {
+
+        this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage();
+        
+        
         this.gameController = gameController;
         alienList = gameController.getAliens();
         buildingList = gameController.getBuildings();
         spaceShipImage = this.gameController.getSpaceShip().loadImage();
-
+        
         this.gameController.addObserver(this);
         setBackground(Color.BLACK);
 
@@ -37,6 +41,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(this.backgroundImage,0,0, 1000, 800, this);
+          
         draw(g);
     }
 
