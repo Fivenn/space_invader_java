@@ -11,9 +11,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class PlaygroundAreaView extends JPanel implements Observer {
-    private GameController gameController;
+    private final GameController gameController;
     private List<List<Alien>> alienList;
-    private AlienSpaceShip alienSpaceShip;
     private List<Building> buildingList;
     Image spaceShipImage;
     JLabel gamerOver;
@@ -21,7 +20,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
         alienList = gameController.getAliens();
-        alienSpaceShip = gameController.getAlienSpaceShip();
         buildingList = gameController.getBuildings();
         spaceShipImage = this.gameController.getSpaceShip().loadImage();
 
@@ -51,10 +49,17 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         drawBuildings(g);
         drawSpaceShip(g);
         drawAliens(g); 
+        
         if(this.gameController.getSpaceShip().getBullet()!= null){
             drawBullet(g);
         }
+        
+        if(this.gameController.getNbChancesSpawnVaisseau() == 0){
+            drawAlienSpaceShip(g);
+        }
         drawAliensBullets(g);
+        
+        
         Toolkit.getDefaultToolkit().sync();
     }
     
@@ -73,13 +78,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
     
     private void drawSpaceShip(Graphics g){
-        
         g.drawImage(spaceShipImage,(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeigth(), this);
     }
 
     private void drawAlienSpaceShip(Graphics g){
-        Image i = this.alienSpaceShip.loadImage();
-        g.drawImage(i, (int) this.alienSpaceShip.getX(), (int) this.alienSpaceShip.getY(), (int) this.alienSpaceShip.getWidth(), (int) this.alienSpaceShip.getWidth(), this);
+        Image i = this.gameController.getAlienSpaceShip().loadImage();
+        g.drawImage(i, (int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth(), this);
     }
 
     private void drawBullet(Graphics g) {
@@ -125,6 +129,15 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                     break; 
                 }
 
+            }
+            if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
+                dgo.onCollision();
+                this.gameController.getAlienSpaceShip().removeLifePoints(1);
+                if(this.gameController.getAlienSpaceShip().getLifePoints() == 0){               
+                    this.gameController.setAlienSpaceShip(null);
+                    this.gameController.setNbChancesSpawnVaisseau(1000);
+                    
+                }
             }
         }
 

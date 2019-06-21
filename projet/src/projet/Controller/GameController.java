@@ -28,15 +28,16 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
-    private Timer timer;
+    private final Timer timer;
     private int isAliensOnTheWall = 1;
+    private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
     
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
-    private int nbBuilding = 4;
+    private final int nbBuilding = 4;
     private int nbChancesBulletAlien = 5000;
-    
+    private int nbChancesSpawnVaisseau = 100;
     private int niveau;
     
     public GameController() {
@@ -50,7 +51,6 @@ public class GameController extends Observable implements ActionListener{
     private void initGameControllerObjects() {
         this.player = new Player(0, 3, "BestPlayer");
         this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
-        this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.buildings = new ArrayList<>();
         buildAliensList();
         buildBuildingList();
@@ -166,8 +166,27 @@ public class GameController extends Observable implements ActionListener{
                         break;
                     }
                 }
-            };
+            }
             
+        }
+        
+        if(getNbChancesSpawnVaisseau() != 0 && rand.nextInt()%getNbChancesSpawnVaisseau() == 0){
+            this.setAlienSpaceShip(new AlienSpaceShip(10, 10, 1, 100, new ImageIcon(this.getClass().getClassLoader().getResource("spaceShipAlien.png"))));
+            setNbChancesSpawnVaisseau(0);
+        }else if(getNbChancesSpawnVaisseau()==0){
+            shouldMoveDown = false;
+            if(this.getAlienSpaceShip().getX()>856){
+                shouldMoveDown = true;
+                this.isAlienSpaceShipOnTheWall = -1;
+            }else if(this.getAlienSpaceShip().getX()<1){
+                shouldMoveDown = true;
+                this.isAlienSpaceShipOnTheWall = 1;
+            } 
+            
+            this.getAlienSpaceShip().setX(this.getAlienSpaceShip().getX() + this.getAlienSpaceShip().getSpeed()*isAlienSpaceShipOnTheWall);
+            if(shouldMoveDown){
+                this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
+            }
         }
     }
          
@@ -257,5 +276,19 @@ public class GameController extends Observable implements ActionListener{
      */
     public int getNbBuilding() {
         return nbBuilding;
+    }
+
+    /**
+     * @return the nbChancesSpawnVaisseau
+     */
+    public int getNbChancesSpawnVaisseau() {
+        return nbChancesSpawnVaisseau;
+    }
+
+    /**
+     * @param nbChancesSpawnVaisseau the nbChancesSpawnVaisseau to set
+     */
+    public void setNbChancesSpawnVaisseau(int nbChancesSpawnVaisseau) {
+        this.nbChancesSpawnVaisseau = nbChancesSpawnVaisseau;
     }
 }
