@@ -65,10 +65,20 @@ public class GameController extends Observable implements ActionListener{
         this.pause = !pause;
     }
 
+
     public void resetGameController() {
         this.isAliensOnTheWall = 1;
         this.pause = false;
         this.aliens .clear();
+        initGameControllerObjects();
+        this.timer.restart();
+    }
+
+    public void resetGameControllerWhenNewGame() {
+        this.isAliensOnTheWall = 1;
+        this.pause = false;
+        this.aliens .clear();
+        this.player = new Player(0, 3, "BestPlayer");
         initGameControllerObjects();
         this.timer.restart();
     }
@@ -180,11 +190,7 @@ public class GameController extends Observable implements ActionListener{
             changementDeNiveau();
             resetGameController();
         }
-        
-        
     }
-
-    
     
     /**
      * @return the player

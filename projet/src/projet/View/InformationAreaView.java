@@ -42,7 +42,7 @@ public class InformationAreaView extends JPanel {
         newGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameController.resetGameController();
+                gameController.resetGameControllerWhenNewGame();
             }
         });
 
