@@ -4,7 +4,6 @@ import projet.Controller.GameController;
 import projet.Model.gameClass.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
 import java.util.Observable;
@@ -15,7 +14,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private List<List<Alien>> alienList;
     private List<Building> buildingList;
     Image spaceShipImage;
-    JLabel gamerOver;
+    JLabel gamerOverLabel;
     
     public PlaygroundAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -28,10 +27,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
         InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
 
-        gamerOver= new JLabel("GAME OVER");
-        gamerOver.setForeground(Color.white);
-        gamerOver.setBackground(Color.black);
-        gamerOver.setFont(gamerOver.getFont().deriveFont(64f));
+        gamerOverLabel = new JLabel("GAME OVER");
+        gamerOverLabel.setForeground(Color.white);
+        gamerOverLabel.setBackground(Color.black);
+        gamerOverLabel.setFont(gamerOverLabel.getFont().deriveFont(64f));
 
         this.setPreferredSize(new Dimension(900, 1000));
         this.setLayout(new BorderLayout());
@@ -122,13 +121,13 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                 l = this.alienList.get(i);
                 if(l.size()-1>=0 && dgoR.intersects(new Rectangle((int)l.get(l.size()-1).getX(),(int) l.get(l.size()-1).getY(), (int)l.get(l.size()-1).getWidth(), (int)l.get(l.size()-1).getHeigth()))){
                     dgo.onCollision();
+                    this.gameController.getPlayer().addPoints(this.alienList.get(i).get(l.size()-1).getPoints());
                     this.alienList.get(i).remove(l.size()-1);
                     if(this.alienList.get(i).isEmpty()){
                         this.alienList.remove(i);
                     }
                     break; 
                 }
-
             }
             if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
                 dgo.onCollision();
@@ -144,16 +143,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeigth()))){
                 dgo.onCollision();
                 this.gameController.getPlayer().removeLifePoints(1);
-        } 
-        
+        }
     }
         
     @Override
     public void update(Observable o, Object arg) {
         repaint();
-        if(false) {
-            this.add(this.add(gamerOver), BorderLayout.CENTER);
-        }
     }
 
 }

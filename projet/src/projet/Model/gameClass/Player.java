@@ -24,6 +24,10 @@ public class Player {
         this.lifePoints -= lifePoints;
     }
 
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
     /**
      * @return the points
      */

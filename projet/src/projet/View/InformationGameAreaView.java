@@ -4,12 +4,16 @@ import projet.Controller.GameController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class InformationGameAreaView extends JPanel {
+public class InformationGameAreaView extends JPanel implements Observer {
     private GameController gameController;
     private int points;
     private int lifePoints;
     private String pseudo;
+    private JLabel lifeLabel;
+    private JLabel scoreLabel;
 
     public InformationGameAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -22,9 +26,10 @@ public class InformationGameAreaView extends JPanel {
         this.setOpaque(true);
         this.setPreferredSize(new Dimension(900, 50));
         this.setLayout(new GridLayout(1,3));
+        this.gameController.addObserver(this);
 
-        JLabel scoreLabel = new JLabel("Score: "+points);
-        JLabel lifeLabel = new JLabel("Life: "+lifePoints);
+        scoreLabel = new JLabel("Score: "+points);
+        lifeLabel = new JLabel("Life: "+lifePoints);
         JLabel pseudoPlayerLabel = new JLabel(pseudo);
 
         scoreLabel.setForeground(Color.WHITE);
@@ -39,5 +44,21 @@ public class InformationGameAreaView extends JPanel {
         this.add(scoreLabel);
         this.add(lifeLabel);
         this.add(pseudoPlayerLabel);
+    }
+
+    public void updateLifePoints() {
+        lifePoints = this.gameController.getPlayer().getLifePoints();
+        lifeLabel.setText("Life: "+this.lifePoints);
+    }
+
+    public void updateScore() {
+        points = this.gameController.getPlayer().getPoints();
+        scoreLabel.setText("Score: "+this.points);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        updateLifePoints();
+        updateScore();
     }
 }
