@@ -192,8 +192,8 @@ public class GameController extends Observable implements ActionListener{
             if(shouldMoveDown){
                 this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
                 
-                if(aliens.get(j).get(i).getY()>550){
-                    break;
+                if(this.getAlienSpaceShip().getY()>550){
+                    
                 }
             }
         }
