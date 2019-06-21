@@ -70,18 +70,15 @@ public class GameController extends Observable implements ActionListener{
     public void resetGameController() {
         this.isAliensOnTheWall = 1;
         this.pause = false;
+        this.isGameIsOver = false;
         this.aliens .clear();
         initGameControllerObjects();
         this.timer.restart();
     }
 
     public void resetGameControllerWhenNewGame() {
-        this.isAliensOnTheWall = 1;
-        this.pause = false;
-        this.aliens .clear();
+        this.resetGameController();
         this.player = new Player(0, 3, "BestPlayer");
-        initGameControllerObjects();
-        this.timer.restart();
     }
 
     /**
@@ -170,7 +167,8 @@ public class GameController extends Observable implements ActionListener{
                     aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
                     if(aliens.get(j).get(i).getY()>550){
                         this.isGameIsOver = true;
-                        System.out.println(this.isGameIsOver);
+                        this.setChanged();
+                        this.notifyObservers();
                         break;
                     }
                 }

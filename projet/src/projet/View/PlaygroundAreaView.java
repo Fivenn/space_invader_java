@@ -145,7 +145,6 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                 this.gameController.getPlayer().removeLifePoints(1);
                 if(gameController.getPlayer().getLifePoints() == 0){
                     gameController.setGameIsOver(true);
-                    System.out.println(this.gameController.isGameIsOver());
                 }
         }
     }
