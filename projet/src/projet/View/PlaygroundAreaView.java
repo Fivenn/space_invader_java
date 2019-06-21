@@ -128,9 +128,15 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                     }
                     break; 
                 }
-                /*for(int j = 0; j<l.size()-1;j++){
-                                       
-                }*/
+                for(Alien a: l){
+                    if(a.getBullet()!= null){
+                        if(dgoR.intersects(new Rectangle((int)a.getBullet().getX(),(int) a.getBullet().getY(), (int)a.getBullet().getWidth(), (int)a.getBullet().getHeigth()))){
+                            a.getBullet().onCollision();
+                            dgo.onCollision();
+                        }
+                    }
+                }
+                
             }
             if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
                 dgo.onCollision();

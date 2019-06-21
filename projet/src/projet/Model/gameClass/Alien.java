@@ -36,7 +36,7 @@ public class Alien extends TouchableGameObject{
     
     public void shoot(){
         if(isBulletReady()){
-            super.shoot(3,10,10,new ImageIcon(this.getClass().getClassLoader().getResource("shotAlien.png")));
+            super.shoot(1,10,10,new ImageIcon(this.getClass().getClassLoader().getResource("shotAlien.png")));
             this.setBulletReady(false);
         }
     }
