@@ -49,9 +49,9 @@ public class MainView extends JFrame implements KeyListener, Observer {
         this.requestFocus();
     }
 
-    public void changePlaygroundAreaViewToGameOverView() {
-        getContentPane().remove(playgroundAreaView);
-        getContentPane().add(helpView);
+    public void changeView1Toview2(JPanel view1, JPanel view2) {
+        getContentPane().remove(view1);
+        getContentPane().add(view2);
         validate();
     }
 
@@ -73,7 +73,7 @@ public class MainView extends JFrame implements KeyListener, Observer {
     @Override
     public void update(Observable o, Object arg) {
         if(gameController.isGameIsOver()){
-            this.changePlaygroundAreaViewToGameOverView();
+            this.changeView1Toview2(this.playgroundAreaView, this.helpView);
         }
     }
 }
