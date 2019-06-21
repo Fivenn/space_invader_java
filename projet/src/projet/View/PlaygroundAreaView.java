@@ -156,6 +156,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         if(this.gameController.isGameIsOver()) {
             this.gameController.pauseGame();
             this.add(gamerOverLabel);
+            System.out.println(this.gameController.isGameIsOver());
         }
     }
 

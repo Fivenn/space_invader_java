@@ -57,7 +57,9 @@ public class MainView extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        this.gameController.actionJoueur(e.getKeyCode());
+        if(!gameController.isGameIsOver()){
+            this.gameController.actionJoueur(e.getKeyCode());
+        }
     }
 
     @Override
