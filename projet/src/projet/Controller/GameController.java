@@ -38,7 +38,7 @@ public class GameController extends Observable implements ActionListener{
     private int nbAliensColonnes = 2;
     private final int nbBuilding = 4;
     private int nbChancesBulletAlien = 5000;
-    private int nbChancesSpawnVaisseau = 10;
+    private int nbChancesSpawnVaisseau = 10000;
     private int niveau;
     
     public GameController() {
@@ -127,9 +127,9 @@ public class GameController extends Observable implements ActionListener{
     public void changementDeNiveau(){
         Random rand = new Random();
         this.niveau +=1;
-        this.nbAliensColonnes = (rand.nextInt()%this.niveau)%10 + 2;
-        this.nbAliensLigne = (rand.nextInt()%this.niveau)%6 + 2;
-        this.nbChancesBulletAlien = (rand.nextInt()%this.niveau)%3000 - niveau*100;
+        this.nbAliensColonnes = rand.nextInt()%(this.niveau%8 +1) + 2;
+        this.nbAliensLigne = rand.nextInt()%(this.niveau%5 +1) + 2;
+        this.nbChancesBulletAlien = (rand.nextInt())%(20000 - niveau*1000 +1);
     }
     
     private void buildBuildingList(){
@@ -181,7 +181,7 @@ public class GameController extends Observable implements ActionListener{
         }
         
         if(getNbChancesSpawnVaisseau() != 0 && rand.nextInt()%getNbChancesSpawnVaisseau() == 0){
-            this.setAlienSpaceShip(new AlienSpaceShip(50, 10, 10, 100, new ImageIcon(this.getClass().getClassLoader().getResource("spaceShipAlien.png"))));
+            this.setAlienSpaceShip(new AlienSpaceShip(10, 55, 1, 100, new ImageIcon(this.getClass().getClassLoader().getResource("spaceShipAlien.png"))));
             setNbChancesSpawnVaisseau(0);
         }else if(getNbChancesSpawnVaisseau()==0){
             shouldMoveDown = false;
@@ -196,7 +196,7 @@ public class GameController extends Observable implements ActionListener{
             this.getAlienSpaceShip().setX(this.getAlienSpaceShip().getX() + this.getAlienSpaceShip().getSpeed()*isAlienSpaceShipOnTheWall);
             if(shouldMoveDown){
                 this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
-                if(this.getAlienSpaceShip().getY()>550){
+                if(this.getAlienSpaceShip().getY()>600){
                     this.isGameIsOver = true;
                 }
             }
