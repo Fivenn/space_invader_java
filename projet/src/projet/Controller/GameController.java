@@ -28,7 +28,7 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
-    private final Timer timer;
+    private Timer timer;
     private int isAliensOnTheWall = 1;
     private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
@@ -173,8 +173,6 @@ public class GameController extends Observable implements ActionListener{
                     aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
                     if(aliens.get(j).get(i).getY()>550){
                         this.isGameIsOver = true;
-                        this.setChanged();
-                        this.notifyObservers();
                         break;
                     }
                 }
@@ -200,8 +198,6 @@ public class GameController extends Observable implements ActionListener{
                 this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
                 if(this.getAlienSpaceShip().getY()>550){
                     this.isGameIsOver = true;
-                    this.setChanged();
-                    this.notifyObservers();
                 }
             }
         }
@@ -209,17 +205,20 @@ public class GameController extends Observable implements ActionListener{
          
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(!this.aliens.isEmpty() && !this.aliens.get(this.aliens.size() - 1).isEmpty()){
+        if(!this.aliens.isEmpty() && !this.aliens.get(this.aliens.size() - 1).isEmpty() &&!isGameIsOver()){
             moveAliens();
             if(this.getSpaceShip().getBullet() != null){
                 this.getSpaceShip().getBullet().move(true);
-            }
+            }     
             this.setChanged();
             this.notifyObservers();
-        }else{
+        }else if(!isGameIsOver()){
             changementDeNiveau();
             resetGameController();
+        }else{
+            this.pauseGame();
         }
+
     }
     
     /**
@@ -313,6 +312,7 @@ public class GameController extends Observable implements ActionListener{
     }
 
     public void setGameIsOver(boolean gameIsOver) {
+        this.pauseGame();
         isGameIsOver = gameIsOver;
     }
 }
