@@ -33,7 +33,7 @@ public class GameController extends Observable implements ActionListener{
     private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
     private boolean isGameIsOver = false;
-    
+
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
     private final int nbBuilding = 4;

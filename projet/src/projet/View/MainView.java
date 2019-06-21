@@ -23,6 +23,7 @@ public class MainView extends JFrame implements KeyListener, Observer {
     private PlaygroundAreaView playgroundAreaView;
     private InformationAreaView informationAreaView;
     private HelpView helpView;
+    private GameOverView gameOverView;
 
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
@@ -31,6 +32,7 @@ public class MainView extends JFrame implements KeyListener, Observer {
         playgroundAreaView = new PlaygroundAreaView(this.gameController);
         informationAreaView = new InformationAreaView(this.gameController);
         helpView = new HelpView(this.gameController);
+        gameOverView = new GameOverView();
 
         this.setLayout(new BorderLayout());
         this.add(playgroundAreaView, BorderLayout.WEST);
@@ -73,7 +75,7 @@ public class MainView extends JFrame implements KeyListener, Observer {
     @Override
     public void update(Observable o, Object arg) {
         if(gameController.isGameIsOver()){
-            this.changeView1Toview2(this.playgroundAreaView, this.helpView);
+            this.changeView1Toview2(this.playgroundAreaView, this.gameOverView);
         }
     }
 }
