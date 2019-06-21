@@ -4,6 +4,7 @@ import projet.Controller.GameController;
 import projet.Model.gameClass.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
 import java.util.Observable;
@@ -14,9 +15,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private List<List<Alien>> alienList;
     private List<Building> buildingList;
     Image spaceShipImage;
-    JLabel gamerOverLabel;
     Image backgroundImage;
-    
     public PlaygroundAreaView(GameController gameController) {
 
         this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage();
@@ -30,12 +29,8 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         this.gameController.addObserver(this);
         setBackground(Color.BLACK);
 
-        InformationGameAreaView informationGameAreaView = new InformationGameAreaView(gameController);
+        InformationGameAreaView informationGameAreaView = new InformationGameAreaView(this.gameController);
 
-        gamerOverLabel = new JLabel("GAME OVER");
-        gamerOverLabel.setForeground(Color.white);
-        gamerOverLabel.setBackground(Color.black);
-        gamerOverLabel.setFont(gamerOverLabel.getFont().deriveFont(64f));
 
         this.setPreferredSize(new Dimension(900, 1000));
         this.setLayout(new BorderLayout());
@@ -168,14 +163,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         
     @Override
     public void update(Observable o, Object arg) {
-        
-        if(this.gameController.isGameIsOver()) {   
-            this.add(gamerOverLabel);
+        repaint();
+        if(this.gameController.isGameIsOver()) {
             System.out.println("projet.View.PlaygroundAreaView.update()");
-            
         }
-        repaint(); 
-       
 
     }
 
