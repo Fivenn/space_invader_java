@@ -135,10 +135,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
                 dgo.onCollision();
                 this.gameController.getAlienSpaceShip().removeLifePoints(1);
-                if(this.gameController.getAlienSpaceShip().getLifePoints() == 0){               
+                if(this.gameController.getAlienSpaceShip().getLifePoints() == 0){
+                    this.gameController.getPlayer().addPoints(this.gameController.getAlienSpaceShip().getPoints());
                     this.gameController.setAlienSpaceShip(null);
                     this.gameController.setNbChancesSpawnVaisseau(1000);
-                    
                 }
             }
             
@@ -147,12 +147,21 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeigth()))){
                 dgo.onCollision();
                 this.gameController.getPlayer().removeLifePoints(1);
+                if(gameController.getPlayer().getLifePoints() == 0){
+                    gameController.setGameIsOver(true);
+                    System.out.println(this.gameController.isGameIsOver());
+                }
         }
     }
         
     @Override
     public void update(Observable o, Object arg) {
         repaint();
+        if(this.gameController.isGameIsOver()) {
+            this.gameController.pauseGame();
+            this.add(gamerOverLabel);
+            System.out.println(this.gameController.isGameIsOver());
+        }
     }
 
 }

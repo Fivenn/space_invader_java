@@ -32,6 +32,7 @@ public class GameController extends Observable implements ActionListener{
     private int isAliensOnTheWall = 1;
     private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
+    private boolean isGameIsOver = false;
     
     private int nbAliensLigne = 2;
     private int nbAliensColonnes = 2;
@@ -168,6 +169,8 @@ public class GameController extends Observable implements ActionListener{
                 for(int i = 0;i<aliens.get(j).size();i++){
                     aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
                     if(aliens.get(j).get(i).getY()>550){
+                        this.isGameIsOver = true;
+                        System.out.println(this.isGameIsOver);
                         break;
                     }
                 }
@@ -283,6 +286,10 @@ public class GameController extends Observable implements ActionListener{
         return nbBuilding;
     }
 
+    public boolean isGameIsOver() {
+        return isGameIsOver;
+    }
+
     /**
      * @return the nbChancesSpawnVaisseau
      */
@@ -295,5 +302,9 @@ public class GameController extends Observable implements ActionListener{
      */
     public void setNbChancesSpawnVaisseau(int nbChancesSpawnVaisseau) {
         this.nbChancesSpawnVaisseau = nbChancesSpawnVaisseau;
+    }
+
+    public void setGameIsOver(boolean gameIsOver) {
+        isGameIsOver = gameIsOver;
     }
 }
