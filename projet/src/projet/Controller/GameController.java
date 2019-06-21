@@ -192,9 +192,10 @@ public class GameController extends Observable implements ActionListener{
             this.getAlienSpaceShip().setX(this.getAlienSpaceShip().getX() + this.getAlienSpaceShip().getSpeed()*isAlienSpaceShipOnTheWall);
             if(shouldMoveDown){
                 this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
-                
                 if(this.getAlienSpaceShip().getY()>550){
-                    
+                    this.isGameIsOver = true;
+                    this.setChanged();
+                    this.notifyObservers();
                 }
             }
         }
@@ -205,8 +206,7 @@ public class GameController extends Observable implements ActionListener{
         if(!this.aliens.isEmpty()){
             moveAliens();
             if(this.getSpaceShip().getBullet() != null){
-                this.getSpaceShip().getBullet().move(true);  
-
+                this.getSpaceShip().getBullet().move(true);
             }
             this.setChanged();
             this.notifyObservers();
@@ -293,6 +293,10 @@ public class GameController extends Observable implements ActionListener{
      */
     public int getNbChancesSpawnVaisseau() {
         return nbChancesSpawnVaisseau;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 
     /**
