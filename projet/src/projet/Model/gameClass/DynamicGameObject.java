@@ -24,9 +24,9 @@ public class DynamicGameObject extends GameObject {
 
     public void move(boolean left) {
         if(left){
-            setX(getX() - getSpeed());
+            if(getX()>0)setX(getX() - getSpeed());
         }else{
-            setX(getX() + getSpeed());
+            if(getX()<850)setX(getX() + getSpeed());
         }
     }
     

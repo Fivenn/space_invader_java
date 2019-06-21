@@ -58,17 +58,53 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
     @Override
     public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if(!gameController.isGameIsOver()){
-            this.gameController.actionJoueur(e.getKeyCode());
+        if(KeyEvent.VK_P == e.getKeyCode()){
+                this.gameController.pauseGame();
+                this.gameController.setArrowTouch(0);
+                this.gameController.setSpaceTouch(false);
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+        System.out.println(e.getExtendedKeyCode() + "              + "+ KeyEvent.VK_SPACE);
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_SPACE:
+                this.gameController.setSpaceTouch(true);
+                System.out.println(this.gameController.getArrowTouch() + "  " + this.gameController.isSpaceTouch());
+                break;
+            case KeyEvent.VK_LEFT:
+                this.gameController.setArrowTouch(-1);
+                break;
+            case KeyEvent.VK_RIGHT:
+                this.gameController.setArrowTouch(1);
+                break;
+            default:
+                break;
+        }
+        this.gameController.actionJoueur();
+        System.out.println(this.gameController.getArrowTouch() + "  " + this.gameController.isSpaceTouch());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+              switch (e.getKeyCode()) {
+            case KeyEvent.VK_P:
+                this.gameController.pauseGame();
+                break;
+            case KeyEvent.VK_SPACE:
+                this.gameController.setSpaceTouch(false);
+                break;
+            case KeyEvent.VK_LEFT:
+                this.gameController.setArrowTouch(0);
+                break;
+            case KeyEvent.VK_RIGHT:
+                this.gameController.setArrowTouch(0);
+                break;
+            default:
+                break;
+        }
+    }
 
     @Override
     public void update(Observable o, Object arg) {
