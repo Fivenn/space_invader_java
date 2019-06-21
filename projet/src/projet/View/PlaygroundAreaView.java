@@ -128,6 +128,9 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                     }
                     break; 
                 }
+                /*for(int j = 0; j<l.size()-1;j++){
+                                       
+                }*/
             }
             if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
                 dgo.onCollision();
@@ -138,6 +141,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                     
                 }
             }
+            
         }
 
         if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeigth()))){
