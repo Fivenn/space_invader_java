@@ -13,6 +13,7 @@ public class InformationGameAreaView extends JPanel implements Observer {
     private int lifePoints;
     private String pseudo;
     private JLabel lifeLabel;
+    private JLabel scoreLabel;
 
     public InformationGameAreaView(GameController gameController) {
         this.gameController = gameController;
@@ -27,7 +28,7 @@ public class InformationGameAreaView extends JPanel implements Observer {
         this.setLayout(new GridLayout(1,3));
         this.gameController.addObserver(this);
 
-        JLabel scoreLabel = new JLabel("Score: "+points);
+        scoreLabel = new JLabel("Score: "+points);
         lifeLabel = new JLabel("Life: "+lifePoints);
         JLabel pseudoPlayerLabel = new JLabel(pseudo);
 
@@ -50,8 +51,14 @@ public class InformationGameAreaView extends JPanel implements Observer {
         lifeLabel.setText("Life: "+this.lifePoints);
     }
 
+    public void updateScore() {
+        points = this.gameController.getPlayer().getPoints();
+        scoreLabel.setText("Score: "+this.points);
+    }
+
     @Override
     public void update(Observable o, Object arg) {
         updateLifePoints();
+        updateScore();
     }
 }

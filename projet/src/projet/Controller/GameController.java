@@ -42,13 +42,13 @@ public class GameController extends Observable implements ActionListener{
     public GameController() {
         this.niveau = 1;
         this.aliens = new ArrayList();
+        this.player = new Player(0, 3, "BestPlayer");
         initGameControllerObjects();
         this.timer = new Timer(5, this);
         this.timer.start();
     }
 
     private void initGameControllerObjects() {
-        this.player = new Player(0, 3, "BestPlayer");
         this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
         this.alienSpaceShip = new AlienSpaceShip(0,0,2,300, new ImageIcon(this.getClass().getClassLoader().getResource("alien.gif")));
         this.buildings = new ArrayList<>();
@@ -71,9 +71,6 @@ public class GameController extends Observable implements ActionListener{
         this.aliens .clear();
         initGameControllerObjects();
         this.timer.restart();
-    }
-
-    public void gameOver() {
     }
 
     /**
@@ -161,7 +158,6 @@ public class GameController extends Observable implements ActionListener{
                 for(int i = 0;i<aliens.get(j).size();i++){
                     aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
                     if(aliens.get(j).get(i).getY()>550){
-                        this.gameOver();
                         break;
                     }
                 }
