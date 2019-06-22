@@ -1,9 +1,9 @@
 package projet.Controller;
 
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -15,13 +15,7 @@ import projet.Model.gameClass.*;
 
 public class GameController extends Observable implements ActionListener{
 
-    /**
-     * @return the aliens
-     */
-    public List<List<Alien>> getAliens() {
-        return aliens;
-    }
-    
+
     private boolean spaceTouch = false;
     private int arrowTouch = 0;
 
@@ -31,7 +25,7 @@ public class GameController extends Observable implements ActionListener{
     private List<List<Alien>> aliens;
     private AlienSpaceShip alienSpaceShip;
     
-    private Timer timer;
+    private final Timer timer;
     private int isAliensOnTheWall = 1;
     private int isAlienSpaceShipOnTheWall = 1;
     private boolean pause = false;
@@ -44,7 +38,17 @@ public class GameController extends Observable implements ActionListener{
     private int nbChancesSpawnVaisseau = 10000;
     private int niveau;
     
+    
+    private ImageIcon alienIcon;
+    private Image backgroundImage;
+    private boolean custom = false;
+ 
     public GameController() {
+        
+        this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage();
+        this.alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("fox.png"));
+        this.spaceShip = new SpaceShip(400.0, 580.0, 15, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
+
         this.niveau = 1;
         this.aliens = new ArrayList();
         this.buildings = new ArrayList<>();
@@ -55,7 +59,6 @@ public class GameController extends Observable implements ActionListener{
     }
 
     private void initGameControllerObjects() {
-        this.spaceShip = new SpaceShip(400.0, 580.0, 15, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
         this.buildings = new ArrayList<>();
         buildAliensList();
         buildBuildingList();
@@ -76,7 +79,6 @@ public class GameController extends Observable implements ActionListener{
         this.pause = false;
         this.isGameIsOver = false;
         this.aliens .clear();
-        this.spaceShip = new SpaceShip(400.0, 580.0, 10, new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
         buildAliensList();
         this.timer.restart();
     }
@@ -104,18 +106,16 @@ public class GameController extends Observable implements ActionListener{
             }
                     
         }
-        this.setChanged();
-        this.notifyObservers();
+        this.notifier();
     }
     
     private void buildAliensList(){
         List<Alien> listAliens;
-        ImageIcon alienIcon = new ImageIcon(this.getClass().getClassLoader().getResource("fox.png"));
         
         for(int x = 1;x<nbAliensLigne+1;x++){
             listAliens = new ArrayList<>();
             for(int y = 2;y<nbAliensColonnes+2;y++){
-                listAliens.add(new Alien(x*60, y*50, 1*(niveau/5)+1, 10, alienIcon));
+                listAliens.add(new Alien(x*60, y*50, 1*(niveau/5)+1, 10, this.alienIcon));
             }   
             this.aliens.add(listAliens);
         }
@@ -124,9 +124,11 @@ public class GameController extends Observable implements ActionListener{
     public void changementDeNiveau(){
         Random rand = new Random();
         this.niveau +=1;
-        this.nbAliensColonnes = rand.nextInt()%(this.niveau%8 +1) + 2;
-        this.nbAliensLigne = rand.nextInt()%(this.niveau%5 +1) + 2;
-        this.nbChancesBulletAlien = (rand.nextInt())%(30000 - niveau*1000 +1) +5000 ;
+        if(!custom){
+            this.nbAliensColonnes = rand.nextInt()%(this.niveau%8 +1) + 2;
+            this.nbAliensLigne = rand.nextInt()%(this.niveau%5 +1) + 2;
+            this.nbChancesBulletAlien = (rand.nextInt())%(30000 - niveau*1000 +1) +5000 ;
+        }
     }
     
     private void buildBuildingList(){
@@ -138,12 +140,14 @@ public class GameController extends Observable implements ActionListener{
         }
         
     }
-
+    public void notifier(){
+        this.setChanged();
+        this.notifyObservers();
+    }
 
     public void gameOver() {
         this.isGameIsOver = true;
-        this.setChanged();
-        this.notifyObservers();
+        this.notifier();
     }
 
     private void moveAliens(){
@@ -214,14 +218,38 @@ public class GameController extends Observable implements ActionListener{
             if(this.getSpaceShip().getBullet() != null){
                 this.getSpaceShip().getBullet().move(true);
             }     
-            this.setChanged();
-            this.notifyObservers();
+            this.notifier();
         }else if(!isGameIsOver()){
             changementDeNiveau();
             resetGameController();
         }else{
             this.pauseGame();
         }
+    }
+    
+    public void setBulletSprite(ImageIcon imageIcon,int width,int height){
+        this.getSpaceShip().setBulletIcon(imageIcon);
+        this.getSpaceShip().setWidthBullet(width);
+        this.getSpaceShip().setHeightBullet(height);
+        
+        if(this.spaceShip.getBullet()!=null){
+            this.getSpaceShip().getBullet().setSprite(imageIcon);
+            this.getSpaceShip().getBullet().setWidth(width);
+            this.getSpaceShip().getBullet().setHeigth(height);
+        }
+        this.notifier();
+        
+    }
+    
+    public void setAliensSprite(ImageIcon imageIcon){
+        this.alienIcon = imageIcon;
+        for(int j = 0;j<aliens.size();j++){
+            for(int i = 0;i<aliens.get(j).size();i++){
+                aliens.get(j).get(i).setSprite(imageIcon);
+            }
+        }
+        this.notifier();
+        
     }
     
     /**
@@ -346,4 +374,40 @@ public class GameController extends Observable implements ActionListener{
     public void setArrowTouch(int arrowTouch) {
         this.arrowTouch = arrowTouch;
     }
+
+    /**
+     * @return the backgroundImage
+     */
+    public Image getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    /**
+     * @param backgroundImage the backgroundImage to set
+     */
+    public void setBackgroundImage(Image backgroundImage) {
+        this.backgroundImage = backgroundImage;
+        this.notifier();
+    }
+
+    /**
+     * @return the custom
+     */
+    public boolean isCustom() {
+        return custom;
+    }
+
+    /**
+     * @param custom the custom to set
+     */
+    public void setCustom(boolean custom) {
+        this.custom = custom;
+    }
+        /**
+     * @return the aliens
+     */
+    public List<List<Alien>> getAliens() {
+        return aliens;
+    }
+    
 }

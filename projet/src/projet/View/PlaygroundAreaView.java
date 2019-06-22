@@ -15,17 +15,12 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     private final GameController gameController;
     private List<List<Alien>> alienList;
     private List<Building> buildingList;
-    Image spaceShipImage;
-    Image backgroundImage;
-    public PlaygroundAreaView(GameController gameController) {
-
-        this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage();
-        
+    
+    public PlaygroundAreaView(GameController gameController) {        
         
         this.gameController = gameController;
         alienList = gameController.getAliens();
         buildingList = gameController.getBuildings();
-        spaceShipImage = this.gameController.getSpaceShip().loadImage();
         
         this.gameController.addObserver(this);
         setBackground(Color.BLACK);
@@ -42,7 +37,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(this.backgroundImage,0,0, 1000, 800, this);
+        g.drawImage(this.gameController.getBackgroundImage(),0,0, 1000, 800, this);
           
         draw(g);
     }
@@ -80,7 +75,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
     
     private void drawSpaceShip(Graphics g){
-        g.drawImage(spaceShipImage,(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeigth(), this);
+        g.drawImage(this.gameController.getSpaceShip().loadImage(),(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeigth(), this);
     }
 
     private void drawAlienSpaceShip(Graphics g){
