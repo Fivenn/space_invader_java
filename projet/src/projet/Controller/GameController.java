@@ -126,7 +126,7 @@ public class GameController extends Observable implements ActionListener{
         this.niveau +=1;
         this.nbAliensColonnes = rand.nextInt()%(this.niveau%8 +1) + 2;
         this.nbAliensLigne = rand.nextInt()%(this.niveau%5 +1) + 2;
-        this.nbChancesBulletAlien = (rand.nextInt())%(20000 - niveau*1000 +1);
+        this.nbChancesBulletAlien = (rand.nextInt())%(30000 - niveau*1000 +1) +5000 ;
     }
     
     private void buildBuildingList(){

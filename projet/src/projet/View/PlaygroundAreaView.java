@@ -19,7 +19,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     Image backgroundImage;
     public PlaygroundAreaView(GameController gameController) {
 
-        this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("backgroundNight.png")).getImage();
+        this.backgroundImage = new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage();
         
         
         this.gameController = gameController;
