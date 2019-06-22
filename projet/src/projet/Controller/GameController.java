@@ -141,6 +141,7 @@ public class GameController extends Observable implements ActionListener{
 
 
     public void gameOver() {
+        this.isGameIsOver = true;
         this.setChanged();
         this.notifyObservers();
     }
@@ -175,7 +176,7 @@ public class GameController extends Observable implements ActionListener{
                 for(int i = 0;i<aliens.get(j).size();i++){
                     aliens.get(j).get(i).setY(aliens.get(j).get(i).getY() + 50);
                     if(aliens.get(j).get(i).getY()>550){
-                        this.isGameIsOver = true;
+                        this.gameOver();
                         break;
                     }
                 }
@@ -199,8 +200,8 @@ public class GameController extends Observable implements ActionListener{
             this.getAlienSpaceShip().setX(this.getAlienSpaceShip().getX() + this.getAlienSpaceShip().getSpeed()*isAlienSpaceShipOnTheWall);
             if(shouldMoveDown){
                 this.getAlienSpaceShip().setY(this.getAlienSpaceShip().getY() + 50);
-                if(this.getAlienSpaceShip().getY()>600){
-                    this.isGameIsOver = true;
+                if(this.getAlienSpaceShip().getY()>600){          
+                    this.gameOver();
                 }
             }
         }

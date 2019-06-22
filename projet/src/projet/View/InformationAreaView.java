@@ -13,10 +13,12 @@ import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
     private GameController gameController;
+    private final HelpView helpView;
     private int pause = 0;
 
     public InformationAreaView(GameController gameController) {
         this.gameController = gameController;
+        helpView = new HelpView(this.gameController,this);
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
         this.setPreferredSize(new Dimension(230, 900));
@@ -68,6 +70,7 @@ public class InformationAreaView extends JPanel {
                     gameController.pauseGame();
                 }
                 // Afficher le nouveau Panel
+                helpView.setVisible(true);
             }
         });
 
@@ -87,8 +90,14 @@ public class InformationAreaView extends JPanel {
         panelHelpAndQuit.add(helpButton);
         panelHelpAndQuit.add(quitButton);
         
+        pauseButton.setFocusable(false);
+        helpButton.setFocusable(false);
+        newGameButton.setFocusable(false);
+        
         this.add(panelHelpAndQuit,NORTH);
         this.add(new LeaderBoardView(this.gameController),CENTER);
         this.add(newGameButton,SOUTH);
+        
+        
     }
 }

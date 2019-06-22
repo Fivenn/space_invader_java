@@ -157,18 +157,16 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                 dgo.onCollision();
                 this.gameController.getPlayer().removeLifePoints(1);
                 if(gameController.getPlayer().getLifePoints() == 0){
-                    gameController.setGameIsOver(true);
+                    this.gameController.gameOver();
                 }
         }
     }
         
     @Override
     public void update(Observable o, Object arg) {
-        repaint();
-        if(this.gameController.isGameIsOver()) {
-            this.gameController.gameOver();
+        if(!this.gameController.isGameIsOver()){
+            repaint();
         }
-
     }
 
 }

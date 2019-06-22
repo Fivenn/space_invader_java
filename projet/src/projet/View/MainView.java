@@ -19,11 +19,10 @@ import javax.swing.*;
  * @author mallou
  */
 public class MainView extends JFrame implements KeyListener, Observer {
-    private GameController gameController;
-    private PlaygroundAreaView playgroundAreaView;
-    private InformationAreaView informationAreaView;
-    private HelpView helpView;
-    private GameOverView gameOverView;
+    private final GameController gameController;
+    private final PlaygroundAreaView playgroundAreaView;
+    private final InformationAreaView informationAreaView;
+    private final GameOverView gameOverView;
 
     public MainView(GameController gameController) throws HeadlessException {
         this.gameController = gameController;
@@ -31,7 +30,6 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
         playgroundAreaView = new PlaygroundAreaView(this.gameController);
         informationAreaView = new InformationAreaView(this.gameController);
-        helpView = new HelpView(this.gameController);
         gameOverView = new GameOverView();
 
         this.setLayout(new BorderLayout());
@@ -41,14 +39,14 @@ public class MainView extends JFrame implements KeyListener, Observer {
         setResizable(false);
         pack();
 
-        setTitle("Space Invaders");
+        setTitle("Piou - Piou");
         setSize(1150, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.addKeyListener(this);
         setVisible(true);
-        this.requestFocus();
+        this.requestFocus(false);
     }
 
     public void changeView1Toview2(JPanel view1, JPanel view2) {
@@ -59,21 +57,13 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        if(KeyEvent.VK_P == e.getKeyCode()){
-                this.gameController.pauseGame();
-                this.gameController.setArrowTouch(0);
-                this.gameController.setSpaceTouch(false);
-        }
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getExtendedKeyCode() + "              + "+ KeyEvent.VK_SPACE);
         switch (e.getKeyCode()) {
             case KeyEvent.VK_SPACE:
                 this.gameController.setSpaceTouch(true);
-                System.out.println(this.gameController.getArrowTouch() + "  " + this.gameController.isSpaceTouch());
                 break;
             case KeyEvent.VK_LEFT:
                 this.gameController.setArrowTouch(-1);
@@ -85,12 +75,11 @@ public class MainView extends JFrame implements KeyListener, Observer {
                 break;
         }
         this.gameController.actionJoueur();
-        System.out.println(this.gameController.getArrowTouch() + "  " + this.gameController.isSpaceTouch());
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-              switch (e.getKeyCode()) {
+        switch (e.getKeyCode()) {
             case KeyEvent.VK_P:
                 this.gameController.pauseGame();
                 break;
@@ -110,11 +99,9 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("cc "+gameController.isGameIsOver());
         if(gameController.isGameIsOver()){
             this.changeView1Toview2(this.playgroundAreaView, this.gameOverView);
-        }
-        if(!gameController.isGameIsOver()){
+        }else{
             this.changeView1Toview2(this.gameOverView, this.playgroundAreaView);
         }
     }

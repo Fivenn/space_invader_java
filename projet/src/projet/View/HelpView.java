@@ -7,31 +7,49 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HelpView extends JPanel {
-    private GameController gameController;
-
-    public HelpView(GameController gameController) {
+public class HelpView extends JFrame {
+    private final GameController gameController;
+    private final InformationAreaView infoView;
+    
+    public HelpView(GameController gameController,InformationAreaView infoView) {
         this.gameController = gameController;
-        this.setBackground(Color.BLACK);
-        this.setOpaque(true);
-        this.setPreferredSize(new Dimension(900, 1000));
-        this.setLayout(new BorderLayout());
+        this.infoView = infoView;
 
-        JLabel helpLabel = new JLabel("qdfhjqsdgflqsdfgq;jsdgfkqjhsd");
-        JButton backButton = new JButton("Back");
+        this.setTitle("Help and Options");
+        this.setSize(300, 700);
+        this.setLayout(new BorderLayout());
+        
+        this.setLocationRelativeTo(this.infoView);
+        this.setBackground(Color.BLACK);
+        
+        
+        JLabel helpLabel = new JLabel("Help and Options");
+        
+        JButton backButton = new JButton("Close");
 
         helpLabel.setForeground(Color.WHITE);
 
         backButton.setBackground(Color.BLACK);
         backButton.setForeground(Color.WHITE);
+        
+        
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameController.pauseGame();
+                onBack();
             }
         });
 
-        this.add(helpLabel, BorderLayout.CENTER);
-        this.add(backButton, BorderLayout.SOUTH);
+        this.add(helpLabel,BorderLayout.NORTH);
+        this.add(backButton,BorderLayout.SOUTH);
+        
+        
+        this.setResizable(false);
+        this.pack();
+    }
+    private void onBack(){
+        this.gameController.pauseGame();
+        this.setVisible(false);
+        this.requestFocus(true);
     }
 }
