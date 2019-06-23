@@ -85,9 +85,18 @@ public class GameController extends Observable implements ActionListener{
     }
 
     public void resetGameControllerWhenNewGame() {
-        this.resetGameController();
-        this.player = new Player(0, 3, "BestPlayer");
+        this.niveau = 1;
+        this.buildings.clear();
+        this.spaceShip.setX(400);
+        this.alienSpaceShip = null;
+        this.nbChancesSpawnVaisseau = 10000;
+        if(this.spaceShip.getBullet() != null)this.spaceShip.getBullet().onCollision();
+        
         buildBuildingList();
+        this.resetGameController();
+        
+        this.player = new Player(0, 3, "BestPlayer");
+        
     }
 
     /**
