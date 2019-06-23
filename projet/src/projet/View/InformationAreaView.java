@@ -12,9 +12,9 @@ import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
-    private GameController gameController;
+    private final GameController gameController;
     private final HelpView helpView;
-    private int pause = 0;
+    private final int pause = 0;
 
     public InformationAreaView(GameController gameController) {
         this.gameController = gameController;

@@ -33,8 +33,8 @@ public class MainView extends JFrame implements KeyListener, Observer {
         gameOverView = new GameOverView();
 
         this.setLayout(new BorderLayout());
-        this.add(playgroundAreaView, BorderLayout.WEST);
-        this.add(informationAreaView, BorderLayout.EAST);
+        this.getContentPane().add(playgroundAreaView, BorderLayout.WEST);
+        this.getContentPane().add(informationAreaView, BorderLayout.EAST);
 
         setResizable(false);
         pack();
@@ -49,12 +49,21 @@ public class MainView extends JFrame implements KeyListener, Observer {
         this.requestFocus(false);
     }
 
-    public void changeView1Toview2(JPanel view1, JPanel view2) {
-        getContentPane().remove(view1);
-        getContentPane().add(view2);
-        validate();
+    
+    public void changeView(){
+        if(this.gameController.isGameIsOver()){
+            this.getContentPane().removeAll();
+            this.getContentPane().add(this.gameOverView, BorderLayout.WEST);
+            this.getContentPane().add(informationAreaView, BorderLayout.EAST);
+            this.gameOverView.repaint();
+        }else{
+            this.getContentPane().removeAll();
+            this.getContentPane().add(this.playgroundAreaView,  BorderLayout.WEST);
+            this.getContentPane().add(informationAreaView, BorderLayout.EAST);
+        }      
+        this.revalidate();
+        this.repaint();
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -99,10 +108,10 @@ public class MainView extends JFrame implements KeyListener, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if(gameController.isGameIsOver()){
-            this.changeView1Toview2(this.playgroundAreaView, this.gameOverView);
-        }else{
-            this.changeView1Toview2(this.gameOverView, this.playgroundAreaView);
+        if(this.getContentPane().getComponent(0) == this.playgroundAreaView && gameController.isGameIsOver()){
+            this.changeView();
+        }else if(this.getContentPane().getComponent(0) == this.gameOverView && !this.gameController.isGameIsOver()){
+            this.changeView();
         }
     }
 }
