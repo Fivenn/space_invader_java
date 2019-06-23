@@ -36,6 +36,7 @@ public class GameController extends Observable implements ActionListener{
     private final int nbBuilding = 4;
     private int nbChancesBulletAlien = 2;
     private int nbChancesSpawnVaisseau = 10000;
+    private int alienSpeed = 1;
     private int niveau;
     
     
@@ -54,7 +55,7 @@ public class GameController extends Observable implements ActionListener{
         this.buildings = new ArrayList<>();
         this.player = new Player(0, 3, "BestPlayer");
         initGameControllerObjects();
-        this.timer = new Timer(3, this);
+        this.timer = new Timer(5, this);
         this.timer.start();
     }
 
@@ -112,10 +113,10 @@ public class GameController extends Observable implements ActionListener{
     private void buildAliensList(){
         List<Alien> listAliens;
         
-        for(int x = 1;x<nbAliensLigne+1;x++){
+        for(int x = 1;x<getNbAliensLigne()+1;x++){
             listAliens = new ArrayList<>();
-            for(int y = 2;y<nbAliensColonnes+2;y++){
-                listAliens.add(new Alien(x*60, y*50, 1*(niveau/5)+1, 10, this.alienIcon));
+            for(int y = 2;y<getNbAliensColonnes()+2;y++){
+                listAliens.add(new Alien(x*60, y*50, getAlienSpeed(), 10, this.alienIcon));
             }   
             this.aliens.add(listAliens);
         }
@@ -125,9 +126,9 @@ public class GameController extends Observable implements ActionListener{
         Random rand = new Random();
         this.niveau +=1;
         if(!custom){
-            this.nbAliensColonnes = rand.nextInt()%(this.niveau%8 +1) + 2;
-            this.nbAliensLigne = rand.nextInt()%(this.niveau%5 +1) + 2;
-            this.nbChancesBulletAlien = (rand.nextInt())%(30000 - niveau*1000 +1) +5000 ;
+            this.setNbAliensColonnes(rand.nextInt()%(this.niveau%8 +1) + 2);
+            this.setNbAliensLigne(rand.nextInt()%(this.niveau%5 +1) + 2);
+            this.setNbChancesBulletAlien((rand.nextInt())%(30000 - niveau*1000 +1) +5000) ;
         }
     }
     
@@ -165,7 +166,7 @@ public class GameController extends Observable implements ActionListener{
             this.aliens.forEach((ls) -> {
                 ls.forEach((a) -> {
                     a.setX(a.getX() + a.getSpeed()*isAliensOnTheWall);
-                    if(rand.nextInt()%nbChancesBulletAlien == 0){
+                    if(rand.nextInt()%getNbChancesBulletAlien() == 0){
                         a.shoot();
                     }
 
@@ -408,6 +409,62 @@ public class GameController extends Observable implements ActionListener{
      */
     public List<List<Alien>> getAliens() {
         return aliens;
+    }
+
+    /**
+     * @return the nbAliensLigne
+     */
+    public int getNbAliensLigne() {
+        return nbAliensLigne;
+    }
+
+    /**
+     * @param nbAliensLigne the nbAliensLigne to set
+     */
+    public void setNbAliensLigne(int nbAliensLigne) {
+        this.nbAliensLigne = nbAliensLigne;
+    }
+
+    /**
+     * @return the nbAliensColonnes
+     */
+    public int getNbAliensColonnes() {
+        return nbAliensColonnes;
+    }
+
+    /**
+     * @param nbAliensColonnes the nbAliensColonnes to set
+     */
+    public void setNbAliensColonnes(int nbAliensColonnes) {
+        this.nbAliensColonnes = nbAliensColonnes;
+    }
+
+    /**
+     * @return the nbChancesBulletAlien
+     */
+    public int getNbChancesBulletAlien() {
+        return nbChancesBulletAlien;
+    }
+
+    /**
+     * @param nbChancesBulletAlien the nbChancesBulletAlien to set
+     */
+    public void setNbChancesBulletAlien(int nbChancesBulletAlien) {
+        this.nbChancesBulletAlien = nbChancesBulletAlien;
+    }
+
+    /**
+     * @return the alienSpeed
+     */
+    public int getAlienSpeed() {
+        return alienSpeed;
+    }
+
+    /**
+     * @param alienSpeed the alienSpeed to set
+     */
+    public void setAlienSpeed(int alienSpeed) {
+        this.alienSpeed = alienSpeed;
     }
     
 }

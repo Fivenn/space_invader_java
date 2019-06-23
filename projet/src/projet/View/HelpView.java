@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.border.EmptyBorder;
 
 public class HelpView extends JFrame {
@@ -53,37 +56,130 @@ public class HelpView extends JFrame {
         this.requestFocus(true);
     }
     private JPanel createPanelCustom(){
-        JPanel p = new JPanel(new GridLayout(1,2));
-        p.add(createPanelCustomSprite());
-        p.add(createPanelCustomVariables());
+        JPanel p = new JPanel(new BorderLayout());
+        p.add(createPanelCustomSprite(),BorderLayout.NORTH);
+        p.add(createPanelCustomVariables(),BorderLayout.SOUTH);
         return p;
     }
     
     private JPanel createPanelCustomVariables(){
-        JPanel p = new JPanel(new GridLayout(1,2));
-        JPanel customOrNot = new JPanel(new BorderLayout());
-        JButton sunButton = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("sun.png")));
-        sunButton.addActionListener(new ActionListener() {
+        JPanel p = new JPanel(new BorderLayout());
+        
+        JCheckBox customCheck = new JCheckBox("Keep Changes between levels?");
+        
+        customCheck.addItemListener((ItemEvent arg0) -> {
+            gameController.setCustom(arg0.getStateChange()==1);
+        });
+        
+        p.add(customCheck,BorderLayout.NORTH);
+        
+        JPanel customVariables = new JPanel(new GridLayout(4,2));
+        customVariables.add(new JLabel("Aliens fire rate : "));
+        
+        JTextField aliensFireRate = new JTextField(String.valueOf(gameController.getNbChancesBulletAlien()));
+        aliensFireRate.addKeyListener(new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                gameController.setBackgroundImage(new ImageIcon(this.getClass().getClassLoader().getResource("background.png")).getImage());
+            public void keyTyped(KeyEvent arg0) {}
+
+            @Override
+            public void keyPressed(KeyEvent arg0) {}
+
+            @Override
+            public void keyReleased(KeyEvent arg0) {
+                try{
+                    int a = Integer.parseInt(aliensFireRate.getText());
+                    
+                    gameController.setNbChancesBulletAlien(a);
+                    aliensFireRate.setForeground(Color.black);
+                }catch(NumberFormatException e){
+                    gameController.setNbChancesBulletAlien(5000);
+                    aliensFireRate.setForeground(Color.red);
+                }
             }
         });
-        sunButton.setBackground(new Color(25,142,232));
+        customVariables.add(aliensFireRate);
+        customVariables.add(new JLabel("Aliens per rows : (10 max)"));
         
-        JButton moonButton = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("moon.png")));
-        moonButton.addActionListener(new ActionListener() {
+        JTextField aliensPerRows = new JTextField(String.valueOf(gameController.getNbAliensLigne()));
+        aliensPerRows.addKeyListener(new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                gameController.setBackgroundImage(new ImageIcon(this.getClass().getClassLoader().getResource("backgroundNight.png")).getImage());
+            public void keyTyped(KeyEvent arg0) {}
+
+            @Override
+            public void keyPressed(KeyEvent arg0) {}
+
+            @Override
+            public void keyReleased(KeyEvent arg0) {
+                try{
+                    int a = Integer.parseInt(aliensPerRows.getText());
+                    if(a>10){
+                        gameController.setNbAliensLigne(10);
+                        aliensPerRows.setText("10");
+                    }else{
+                        gameController.setNbAliensLigne(a);
+                    }
+                    aliensPerRows.setForeground(Color.black);
+                }catch(NumberFormatException e){
+                    gameController.setNbAliensLigne(2);
+                    aliensPerRows.setForeground(Color.red);
+                }
             }
         });
-        moonButton.setBackground(new Color(12,71,116));
+        customVariables.add(aliensPerRows);
+        customVariables.add(new JLabel("Aliens per column : (10 max)"));
         
-        changeBackgroundPanel.add(sunButton,BorderLayout.WEST);
-        changeBackgroundPanel.add(moonButton,BorderLayout.EAST);     
-        p.add(changeBackgroundPanel);
+        JTextField aliensPerColumn = new JTextField(String.valueOf(gameController.getNbAliensColonnes()));
+        aliensPerColumn.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent arg0) {}
+
+            @Override
+            public void keyPressed(KeyEvent arg0) {}
+
+            @Override
+            public void keyReleased(KeyEvent arg0) {
+                try{
+                    int a = Integer.parseInt(aliensPerColumn.getText()); 
+                    if(a>10){
+                        gameController.setNbAliensColonnes(10);
+                        aliensPerColumn.setText("10");
+                    }else{
+                        gameController.setNbAliensColonnes(a);
+                    }
+                    aliensPerColumn.setForeground(Color.black);
+                }catch(NumberFormatException e){
+                    gameController.setNbAliensColonnes(2);
+                    aliensPerColumn.setForeground(Color.red);
+                }
+            }
+        });
+        customVariables.add(aliensPerColumn);      
         
+        customVariables.add(new JLabel("Aliens speed : "));
+        
+        JTextField aliensSpeed = new JTextField(String.valueOf(gameController.getAlienSpeed()));
+        aliensSpeed.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent arg0) {}
+
+            @Override
+            public void keyPressed(KeyEvent arg0) {}
+
+            @Override
+            public void keyReleased(KeyEvent arg0) {
+                try{
+                    int a = Integer.parseInt(aliensSpeed.getText());
+                    gameController.setAlienSpeed(a);
+                    aliensSpeed.setForeground(Color.black);
+                }catch(NumberFormatException e){
+                    gameController.setAlienSpeed(1);
+                    aliensSpeed.setForeground(Color.red);
+                }
+            }
+        });
+        customVariables.add(aliensSpeed);
+        
+        p.add(customVariables,BorderLayout.CENTER);
         return p;
     }
     
