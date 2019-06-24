@@ -259,7 +259,6 @@ public class GameController extends Observable implements ActionListener{
             }
         }
         this.notifier();
-        
     }
     
     /**
