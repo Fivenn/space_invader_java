@@ -12,12 +12,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class PlaygroundAreaView extends JPanel implements Observer {
-    private final GameController gameController;
-    private List<List<Alien>> alienList;
-    private List<Building> buildingList;
-    
+    private final GameController gameController; // COntrôleur du jeu
+    private List<List<Alien>> alienList; // Liste d'aliens
+    private List<Building> buildingList; // Liste de batiments
+
+    /* Classe définissant la vue du plateau de jeu */
     public PlaygroundAreaView(GameController gameController) {        
-        
+        /* Initialisation des objets utiles à la vue + configuration */
         this.gameController = gameController;
         alienList = gameController.getAliens();
         buildingList = gameController.getBuildings();
@@ -33,15 +34,16 @@ public class PlaygroundAreaView extends JPanel implements Observer {
 
         this.add(informationGameAreaView, BorderLayout.NORTH);
     }
-    
+
+    /* Fonction permettant d'afficher les différents composants du jeu sur le plateau de jeu */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(this.gameController.getBackgroundImage(),0,0, 1000, 800, this);
-          
-        draw(g);
+        g.drawImage(this.gameController.getBackgroundImage(),0,0, 1000, 800, this); // Affichage du background
+        draw(g); // Dessine les différents éléments du plateau de jeu
     }
 
+    /* Fonction permettant de dessiner les différents éléments du plateau de jeu */
     private void draw(Graphics g) {
         drawBuildings(g);
         drawSpaceShip(g);
@@ -59,13 +61,15 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         
         Toolkit.getDefaultToolkit().sync();
     }
-    
+
+    /* Fonction permettant de dessiner les différents batiments */
     private void drawBuildings(Graphics g){
         buildingList.forEach((go) -> {
             g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), (int) go.getWidth(), (int) go.getHeight(), this);
         });     
     }
-    
+
+    /* Fonction permettant de dessiner les aliens */
     private void drawAliens(Graphics g){
         this.alienList.forEach((ls) -> {
             ls.forEach((go) -> {
@@ -73,22 +77,26 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             });
         });
     }
-    
+
+    /* Fonction permettant de dessiner le spaceship */
     private void drawSpaceShip(Graphics g){
         g.drawImage(this.gameController.getSpaceShip().loadImage(),(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeight(), this);
     }
 
+    /* Fonction permettant de dessiner le vaisseau alien */
     private void drawAlienSpaceShip(Graphics g){
         Image i = this.gameController.getAlienSpaceShip().loadImage();
         g.drawImage(i, (int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeight(), this);
     }
 
+    /* Fonction permettant de dessiner un missile du vaisseau */
     private void drawBullet(Graphics g) {
         Image i = this.gameController.getSpaceShip().getBullet().loadImage();
         g.drawImage(i, (int) this.gameController.getSpaceShip().getBullet().getX(), (int) this.gameController.getSpaceShip().getBullet().getY(), (int) this.gameController.getSpaceShip().getBullet().getWidth(), (int) this.gameController.getSpaceShip().getBullet().getHeight(), this);
         this.checkCollision(gameController.getSpaceShip().getBullet());
     }
-    
+
+    /* Fonction permettant de dessiner un missile d'un alien */
     private void drawAliensBullets(Graphics g){
         Image i;
 
@@ -102,8 +110,15 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             }
         }
     }
+
+    /* Fonction permettant de vérifier la collision entre un missile et un alien/spaceship */
     public void checkCollision(Bullet dgo){
-        
+        /* On utilise dans cette fonction la fonction intersect qui permet de vérifier si
+        * deux rectangles sont en collisions. Pour cela, on dessine des rectangles invisibles
+        * sur chaque élément du jeu. Si un missile du spaceship rentre en collision avec un alien (alien spaceship y compris-
+        * alors on le supprime du plateau de jeu. Si un missile alien rentre en collision avec le spaceship alors
+        * on enlève un point de vie au player.
+         */
         List<Alien> l;
         Rectangle dgoR = new Rectangle((int)dgo.getX(),(int) dgo.getY(), (int)dgo.getWidth(), (int)dgo.getHeight());
         
@@ -158,6 +173,9 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     }
         
     @Override
+    /* Fonction permettant de "redessiner le plateau de jeu dès que l'on reçoit une
+    * notification de l'observalbe.s
+     */
     public void update(Observable o, Object arg) {
         if(!this.gameController.isGameIsOver()){
             repaint();

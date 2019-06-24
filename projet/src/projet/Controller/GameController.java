@@ -51,7 +51,7 @@ public class GameController extends Observable implements ActionListener{
     private ImageIcon alienIcon; //L'image des aliens à l'écran. 
     private Image backgroundImage; // l'image de fond.
     
-    /* La classe principal du projet, le controller qui gére le lien entre les vues et le modèle . */
+    /* La classe principal du projet, le controller qui gère le lien entre les vues et le modèle . */
     
     public GameController() {
         /* Initialisation des variables qui ne se réinitialise pas lors d'une nouvelle partie / niveau */

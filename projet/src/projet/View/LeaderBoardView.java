@@ -8,21 +8,13 @@ package projet.View;
 import projet.Controller.GameController;
 
 import java.awt.BorderLayout;
-import static java.awt.BorderLayout.CENTER;
-import static java.awt.BorderLayout.NORTH;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author mallou
- */
+/* Classe non implémentée dans notre jeu */
 public class LeaderBoardView extends JPanel{
     private GameController gameController;
     private ImageIcon banniere;

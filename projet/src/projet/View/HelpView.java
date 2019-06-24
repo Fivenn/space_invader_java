@@ -12,10 +12,13 @@ import java.awt.event.KeyListener;
 import javax.swing.border.EmptyBorder;
 
 public class HelpView extends JFrame {
-    private final GameController gameController;
-    private final InformationAreaView infoView;
-    
+    private final GameController gameController; // Contrôleur de notre jeu
+    private final InformationAreaView infoView; // Vue représentant la zone d'information à la droite du plateau de jeu
+
+    /* classe définissant la vue d'aide et de configuration du jeu */
     public HelpView(GameController gameController,InformationAreaView infoView) {
+
+        /* Initialisation des variables et utiles à cette vue */
         this.gameController = gameController;
         this.infoView = infoView;
 
@@ -24,24 +27,23 @@ public class HelpView extends JFrame {
         this.setLayout(new BorderLayout());
         
         this.setLocationRelativeTo(this.infoView);
-        
-        
+
+        /* Création et configuration des objets graphiques */
         JLabel helpLabel = new JLabel("Help and Options");
         helpLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
         JButton backButton = new JButton("Close");
-
-
         backButton.setBackground(Color.BLACK);
         backButton.setForeground(Color.WHITE);
         
-        
+        /* Déclaration de l'action à réaliser lors de l'appui sur le bouton */
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onBack();
+                onBack(); // Ferme la fenêtre d'aide et de configuration puis reprise du jeu
             }
         });
 
+        /* Ajout des éléments graphiques à la fenêtre d'aide et de configuration */
         this.add(helpLabel,BorderLayout.NORTH);
         this.add(createPanelCustom(),BorderLayout.CENTER);
         this.add(backButton,BorderLayout.SOUTH);
@@ -50,23 +52,28 @@ public class HelpView extends JFrame {
         this.setResizable(false);
         this.pack();
     }
+    /* Fonction permettant de fermer la fenêtre d'aide et de configuration puis reprise du jeu */
     private void onBack(){
         this.gameController.pauseGame();
         this.setVisible(false);
         this.requestFocus(true);
     }
+
+    /* Fonction permettant la création d'un Panel avec les éléments de configuration possibles */
     private JPanel createPanelCustom(){
         JPanel p = new JPanel(new BorderLayout());
         p.add(createPanelCustomSprite(),BorderLayout.NORTH);
         p.add(createPanelCustomVariables(),BorderLayout.SOUTH);
         return p;
     }
-    
+
+    /* Fonction permettant de modifier la valeur des variables jeu */
     private JPanel createPanelCustomVariables(){
         JPanel p = new JPanel(new BorderLayout());
         
         JCheckBox customCheck = new JCheckBox("Keep Changes between levels?");
-        
+
+        /* On change l'état de la variable custom du contrôleur quand la box est cochée */
         customCheck.addItemListener((ItemEvent arg0) -> {
             gameController.setCustom(arg0.getStateChange()==1);
         });
@@ -77,6 +84,7 @@ public class HelpView extends JFrame {
         customVariables.add(new JLabel("Aliens fire rate : "));
         
         JTextField aliensFireRate = new JTextField(String.valueOf(gameController.getNbChancesBulletAlien()));
+        /* Écoute et modifie la valeur du rate des missiles des aliens */
         aliensFireRate.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent arg0) {}
@@ -89,9 +97,10 @@ public class HelpView extends JFrame {
                 try{
                     int a = Integer.parseInt(aliensFireRate.getText());
                     
-                    gameController.setNbChancesBulletAlien(a);
+                    gameController.setNbChancesBulletAlien(a); // Modifie le rate des missiles des aliens
                     aliensFireRate.setForeground(Color.black);
                 }catch(NumberFormatException e){
+                    /* Dans le cas où la valeur n'est pas valide, on met le rate à 5000 par défaut et colore le texte saisi en rouge */
                     gameController.setNbChancesBulletAlien(5000);
                     aliensFireRate.setForeground(Color.red);
                 }
@@ -99,7 +108,8 @@ public class HelpView extends JFrame {
         });
         customVariables.add(aliensFireRate);
         customVariables.add(new JLabel("Aliens per rows : (10 max)"));
-        
+
+        /* Écoute et modifie le nombre d'aliens par ligne */
         JTextField aliensPerRows = new JTextField(String.valueOf(gameController.getNbAliensLigne()));
         aliensPerRows.addKeyListener(new KeyListener() {
             @Override
@@ -112,12 +122,14 @@ public class HelpView extends JFrame {
             public void keyReleased(KeyEvent arg0) {
                 try{
                     int a = Integer.parseInt(aliensPerRows.getText());
+                    /* Si la valeur saisie est supérieure à 10, on modifie le nombre d'aliens à 10 tout en modifiant le champ de texte */
                     if(a>10){
                         gameController.setNbAliensLigne(10);
                         aliensPerRows.setText("10");
                     }else{
                         gameController.setNbAliensLigne(a);
                     }
+                    /* Dans le cas où il y a une erreur, on set le nombre d'aliens à 2 */
                     aliensPerRows.setForeground(Color.black);
                 }catch(NumberFormatException e){
                     gameController.setNbAliensLigne(2);
@@ -127,7 +139,8 @@ public class HelpView extends JFrame {
         });
         customVariables.add(aliensPerRows);
         customVariables.add(new JLabel("Aliens per column : (10 max)"));
-        
+
+        /* Écoute et modifie le nombre d'aliens par colonne */
         JTextField aliensPerColumn = new JTextField(String.valueOf(gameController.getNbAliensColonnes()));
         aliensPerColumn.addKeyListener(new KeyListener() {
             @Override
@@ -139,13 +152,15 @@ public class HelpView extends JFrame {
             @Override
             public void keyReleased(KeyEvent arg0) {
                 try{
-                    int a = Integer.parseInt(aliensPerColumn.getText()); 
+                    int a = Integer.parseInt(aliensPerColumn.getText());
+                    /* Si la valeur saisie est supérieure à 10, on modifie le nombre d'aliens à 10 tout en modifiant le champ de texte */
                     if(a>10){
                         gameController.setNbAliensColonnes(10);
                         aliensPerColumn.setText("10");
                     }else{
                         gameController.setNbAliensColonnes(a);
                     }
+                    /* Dans le cas où il y a une erreur, on met le nombre d'aliens à 2 */
                     aliensPerColumn.setForeground(Color.black);
                 }catch(NumberFormatException e){
                     gameController.setNbAliensColonnes(2);
@@ -158,6 +173,7 @@ public class HelpView extends JFrame {
         customVariables.add(new JLabel("Aliens speed : "));
         
         JTextField aliensSpeed = new JTextField(String.valueOf(gameController.getAlienSpeed()));
+        /* Écoute et modifie la vitesse des aliens */
         aliensSpeed.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent arg0) {}
@@ -169,9 +185,10 @@ public class HelpView extends JFrame {
             public void keyReleased(KeyEvent arg0) {
                 try{
                     int a = Integer.parseInt(aliensSpeed.getText());
-                    gameController.setAlienSpeed(a);
+                    gameController.setAlienSpeed(a); //Modifie la vitesse en fonction de la saisie du champ
                     aliensSpeed.setForeground(Color.black);
                 }catch(NumberFormatException e){
+                    /* Dans le cas où il y a une erreur, on met la vitesse à 1 */
                     gameController.setAlienSpeed(1);
                     aliensSpeed.setForeground(Color.red);
                 }
@@ -182,7 +199,8 @@ public class HelpView extends JFrame {
         p.add(customVariables,BorderLayout.CENTER);
         return p;
     }
-    
+
+    /* Fonction permettant la création d'un panel avec des sprites + définition des actions des différents éléments qu'il comporte. */
     private JPanel createPanelCustomSprite(){
         JPanel p = new JPanel(new GridLayout(4,1));
         
@@ -302,9 +320,7 @@ public class HelpView extends JFrame {
         changeMissilePanel.add(eggButton,BorderLayout.WEST);
         changeMissilePanel.add(missileButton,BorderLayout.EAST);     
         p.add(changeMissilePanel);
-        
-        
-        
+
         return p;
     }
     

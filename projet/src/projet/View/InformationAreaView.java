@@ -12,13 +12,16 @@ import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 
 public class InformationAreaView extends JPanel {
-    private final GameController gameController;
-    private final HelpView helpView;
-    private final int pause = 0;
+    private final GameController gameController; //Contrôleur de notre jeu
+    private final HelpView helpView; // Vue présentant la zone d'aide et de configuration
 
+    /* Classe définissant la vue d'information visible à droite du plateau de jeu */
     public InformationAreaView(GameController gameController) {
+        /* initialisation des variables utiles à la vue */
         this.gameController = gameController;
         helpView = new HelpView(this.gameController,this);
+
+        /* Configuration de la vue */
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
         this.setPreferredSize(new Dimension(230, 900));
@@ -41,6 +44,7 @@ public class InformationAreaView extends JPanel {
         newGameButton.setForeground(Color.white);
         newGameButton.setOpaque(true);
         newGameButton.setBorderPainted(false);
+        /* Déclaration d'un écouteur sur le bouton New Game */
         newGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,6 +56,7 @@ public class InformationAreaView extends JPanel {
         pauseButton.setForeground(Color.white);
         pauseButton.setOpaque(true);
         pauseButton.setBorderPainted(false);
+        /* Déclaration d'un écouteur sur le bouton Pause */
         pauseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,13 +68,15 @@ public class InformationAreaView extends JPanel {
         helpButton.setForeground(Color.white);
         helpButton.setOpaque(true);
         helpButton.setBorderPainted(false);
+        /* Déclaration d'un écouteur sur le bouton d'aide */
         helpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /* Si le jeu n'est pas en pause on le met en pause */
                 if(!gameController.isPause()) {
                     gameController.pauseGame();
                 }
-                // Afficher le nouveau Panel
+                /* Afficher le nouveau Panel */
                 helpView.setVisible(true);
             }
         });
@@ -78,10 +85,11 @@ public class InformationAreaView extends JPanel {
         quitButton.setForeground(Color.red);
         quitButton.setOpaque(true);
         quitButton.setBorderPainted(false);
+        /* Déclaration d'un écouteur sur le bouton Quitter */
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                System.exit(0); // Stop l'application avec un code de retour 0
             }
         });
         

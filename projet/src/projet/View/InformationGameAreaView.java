@@ -8,14 +8,16 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class InformationGameAreaView extends JPanel implements Observer {
-    private GameController gameController;
-    private int points;
-    private int lifePoints;
-    private String pseudo;
-    private JLabel lifeLabel;
-    private JLabel scoreLabel;
+    private GameController gameController; // Contrôleur du jeu
+    private int points; // Nombre de points gagné par le joueur
+    private int lifePoints; // Points de vie du joueur
+    private String pseudo; // Pseudo du joueur
+    private JLabel lifeLabel; // Label représentant la vie du joueur
+    private JLabel scoreLabel; // Label représentant le score du joueur
 
+    /* Classe définissant la vue d'information sur la partie (présent au dessus du plateau de jeu) */
     public InformationGameAreaView(GameController gameController) {
+        /* Initialisation des variables et configuration de la vue */
         this.gameController = gameController;
         this.setBorder(BorderFactory.createEmptyBorder(0, 7,0, 0));
         points = gameController.getPlayer().getPoints();
@@ -46,17 +48,22 @@ public class InformationGameAreaView extends JPanel implements Observer {
         this.add(pseudoPlayerLabel);
     }
 
+    /* Fonction permettant d'actualiser l'affichage des points de vie du joueur */
     public void updateLifePoints() {
         lifePoints = this.gameController.getPlayer().getLifePoints();
         lifeLabel.setText("Life: "+this.lifePoints);
     }
 
+    /* Fonction permettant d'actualiser le score du joueur */
     public void updateScore() {
         points = this.gameController.getPlayer().getPoints();
         scoreLabel.setText("Score: "+this.points);
     }
 
     @Override
+    /* Fonction permettant d'actualiser les points de vie et le score d'un joueur quand on reçoit une
+    * notification de l'observable (GameController).
+     */
     public void update(Observable o, Object arg) {
         updateLifePoints();
         updateScore();
