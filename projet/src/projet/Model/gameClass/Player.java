@@ -9,6 +9,12 @@ package projet.Model.gameClass;
  *
  * @author mallou
  */
+
+/* Cette classe est la classe Joueur qui gère l'entité utilisateur.
+    - Elle possède un attribut points qui contient le nombre de points que le joueur possède,
+        * Un attribut lifePoints pour gérer les points de vie
+        * un pseudo permettant au joueur de choisir comment il veut s'appeler. 
+*/
 public class Player {
     private int points;
     private int lifePoints;

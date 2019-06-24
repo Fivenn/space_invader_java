@@ -11,6 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author mallou
  */
+
+/* Cette classe est la classe AlienSpaceShip. Elle définit des objets visibles et déplacables. 
+            * La fonction de tir n'est pas utilisée pour le moment mais peut facilement être implémentée, la classe héritant de touchableGameObject.
+    - La fonction remove lifePoints retire les points de vie selon le nombre demandé.
+*/
+
 public class AlienSpaceShip extends Alien{
     private int lifePoints;
     public AlienSpaceShip(double x, double y, int speed, int points, ImageIcon sprite) {

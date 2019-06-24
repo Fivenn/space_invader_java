@@ -11,6 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author mallou
  */
+
+/* Cette classe est la classe Alien. Elle définit des objets visibles, déplacables pouvant tirer.
+    - Elle possède un attribut points qui contient le nombre de points accordés au joueur en cas de décès.
+    - La fonction shoot redéfinit celle que touchableObject et permet de tirer en définissant les attributs du missile.
+*/
+
 public class Alien extends TouchableGameObject{
     private int points;
     

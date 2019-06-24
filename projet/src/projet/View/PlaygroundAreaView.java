@@ -62,30 +62,30 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     
     private void drawBuildings(Graphics g){
         buildingList.forEach((go) -> {
-            g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), (int) go.getWidth(), (int) go.getHeigth(), this);
+            g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), (int) go.getWidth(), (int) go.getHeight(), this);
         });     
     }
     
     private void drawAliens(Graphics g){
         this.alienList.forEach((ls) -> {
             ls.forEach((go) -> {
-                g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), (int) go.getWidth(), (int) go.getHeigth(), this);
+                g.drawImage(go.loadImage(),(int) go.getX(), (int) go.getY(), (int) go.getWidth(), (int) go.getHeight(), this);
             });
         });
     }
     
     private void drawSpaceShip(Graphics g){
-        g.drawImage(this.gameController.getSpaceShip().loadImage(),(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeigth(), this);
+        g.drawImage(this.gameController.getSpaceShip().loadImage(),(int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(), (int) this.gameController.getSpaceShip().getWidth(), (int) this.gameController.getSpaceShip().getHeight(), this);
     }
 
     private void drawAlienSpaceShip(Graphics g){
         Image i = this.gameController.getAlienSpaceShip().loadImage();
-        g.drawImage(i, (int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth(), this);
+        g.drawImage(i, (int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeight(), this);
     }
 
     private void drawBullet(Graphics g) {
         Image i = this.gameController.getSpaceShip().getBullet().loadImage();
-        g.drawImage(i, (int) this.gameController.getSpaceShip().getBullet().getX(), (int) this.gameController.getSpaceShip().getBullet().getY(), (int) this.gameController.getSpaceShip().getBullet().getWidth(), (int) this.gameController.getSpaceShip().getBullet().getHeigth(), this);
+        g.drawImage(i, (int) this.gameController.getSpaceShip().getBullet().getX(), (int) this.gameController.getSpaceShip().getBullet().getY(), (int) this.gameController.getSpaceShip().getBullet().getWidth(), (int) this.gameController.getSpaceShip().getBullet().getHeight(), this);
         this.checkCollision(gameController.getSpaceShip().getBullet());
     }
     
@@ -96,7 +96,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             for(Alien a: l){
                 if(a.getBullet()!= null){
                     i = a.getBullet().loadImage();
-                    g.drawImage(i, (int) a.getBullet().getX(), (int) a.getBullet().getY(), (int) a.getBullet().getWidth(), (int) a.getBullet().getHeigth(), this);
+                    g.drawImage(i, (int) a.getBullet().getX(), (int) a.getBullet().getY(), (int) a.getBullet().getWidth(), (int) a.getBullet().getHeight(), this);
                     this.checkCollision(a.getBullet());  
                 }
             }
@@ -105,10 +105,10 @@ public class PlaygroundAreaView extends JPanel implements Observer {
     public void checkCollision(Bullet dgo){
         
         List<Alien> l;
-        Rectangle dgoR = new Rectangle((int)dgo.getX(),(int) dgo.getY(), (int)dgo.getWidth(), (int)dgo.getHeigth());
+        Rectangle dgoR = new Rectangle((int)dgo.getX(),(int) dgo.getY(), (int)dgo.getWidth(), (int)dgo.getHeight());
         
         for(int i = 0; i<this.gameController.getNbBuilding();i++){
-            if(this.buildingList.size()>=0 && dgoR.intersects(new Rectangle((int) this.buildingList.get(i).getX(), (int) this.buildingList.get(i).getY(),(int) this.buildingList.get(i).getWidth(), (int)this.buildingList.get(i).getHeigth()))){
+            if(this.buildingList.size()>=0 && dgoR.intersects(new Rectangle((int) this.buildingList.get(i).getX(), (int) this.buildingList.get(i).getY(),(int) this.buildingList.get(i).getWidth(), (int)this.buildingList.get(i).getHeight()))){
                 dgo.onCollision();
                 this.buildingList.get(i).onCollision();
             } 
@@ -117,7 +117,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
         if(dgo.getShooter()== this.gameController.getSpaceShip()){
             for(int i = 0;i<alienList.size();i++){
                 l = this.alienList.get(i);
-                if(l.size()-1>=0 && dgoR.intersects(new Rectangle((int)l.get(l.size()-1).getX(),(int) l.get(l.size()-1).getY(), (int)l.get(l.size()-1).getWidth(), (int)l.get(l.size()-1).getHeigth()))){
+                if(l.size()-1>=0 && dgoR.intersects(new Rectangle((int)l.get(l.size()-1).getX(),(int) l.get(l.size()-1).getY(), (int)l.get(l.size()-1).getWidth(), (int)l.get(l.size()-1).getHeight()))){
                     dgo.onCollision();
                     this.gameController.getPlayer().addPoints(this.alienList.get(i).get(l.size()-1).getPoints());
                     this.alienList.get(i).remove(l.size()-1);
@@ -128,7 +128,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                 }
                 for(Alien a: l){
                     if(a.getBullet()!= null){
-                        if(dgoR.intersects(new Rectangle((int)a.getBullet().getX(),(int) a.getBullet().getY(), (int)a.getBullet().getWidth(), (int)a.getBullet().getHeigth()))){
+                        if(dgoR.intersects(new Rectangle((int)a.getBullet().getX(),(int) a.getBullet().getY(), (int)a.getBullet().getWidth(), (int)a.getBullet().getHeight()))){
                             a.getBullet().onCollision();
                             dgo.onCollision();
                         }
@@ -136,7 +136,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
                 }
                 
             }
-            if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeigth()))){
+            if(this.gameController.getNbChancesSpawnVaisseau()==0 && dgoR.intersects(new Rectangle((int) this.gameController.getAlienSpaceShip().getX(), (int) this.gameController.getAlienSpaceShip().getY(), (int) this.gameController.getAlienSpaceShip().getWidth(), (int) this.gameController.getAlienSpaceShip().getHeight()))){
                 dgo.onCollision();
                 this.gameController.getAlienSpaceShip().removeLifePoints(1);
                 if(this.gameController.getAlienSpaceShip().getLifePoints() == 0){
@@ -148,7 +148,7 @@ public class PlaygroundAreaView extends JPanel implements Observer {
             
         }
 
-        if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeigth()))){
+        if(dgo.getShooter() != this.gameController.getSpaceShip() && dgoR.intersects(new Rectangle((int) this.gameController.getSpaceShip().getX(), (int) this.gameController.getSpaceShip().getY(),(int) this.gameController.getSpaceShip().getWidth(), (int)this.gameController.getSpaceShip().getHeight()))){
                 dgo.onCollision();
                 this.gameController.getPlayer().removeLifePoints(1);
                 if(gameController.getPlayer().getLifePoints() == 0){

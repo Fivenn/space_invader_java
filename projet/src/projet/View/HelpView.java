@@ -219,7 +219,7 @@ public class HelpView extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 gameController.getSpaceShip().setSprite(new ImageIcon(this.getClass().getClassLoader().getResource("spaceshipPiou.png")));
                 gameController.getSpaceShip().setWidth(60);
-                gameController.getSpaceShip().setHeigth(80);
+                gameController.getSpaceShip().setHeight(80);
                 gameController.getSpaceShip().setY(580);
                 gameController.notifier();
             }
@@ -233,7 +233,7 @@ public class HelpView extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 gameController.getSpaceShip().setSprite(new ImageIcon(this.getClass().getClassLoader().getResource("ship.gif")));
                 gameController.getSpaceShip().setWidth(40);
-                gameController.getSpaceShip().setHeigth(40);
+                gameController.getSpaceShip().setHeight(40);
                 gameController.getSpaceShip().setY(600);
                 gameController.notifier();
             }

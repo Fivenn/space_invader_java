@@ -11,6 +11,16 @@ import javax.swing.ImageIcon;
  *
  * @author mallou
  */
+
+
+/* Cette classe est la classe permettant de gérer tous les objets pouvant tirer
+    - Elle est fille de la classe dynamicGameObject car tous les objets gérés par cette classe sont visibles et déplaçable.
+    - L'attribut bulletReady permet de savoir si l'objet à le droit de tirer à nouveau. Il est remis à zéro lorsque le missile à disparu de l'écran.
+    - L'attribut Bullet est le missile lancé par l'objet. Il est instancié uniquement lorsqu'il devient visible et redevient nul sinon.
+    - La fonction shoot sert à tirer. Elle instancie le missile au moment du tir selon les paramètres passés par la classe inférieure.
+    - La classe possède deux constructeurs afin de ne pas avoir à définir la taille ou la hauteur dans le constructeur de chaque classe.
+*/
+
 public abstract class TouchableGameObject extends DynamicGameObject{
 
     private boolean bulletReady;
@@ -39,7 +49,7 @@ public abstract class TouchableGameObject extends DynamicGameObject{
     /**
      * @param bulletReady the bulletReady to set
      */
-    public void setBulletReady(boolean bulletReady) {
+    public final void setBulletReady(boolean bulletReady) {
         this.bulletReady = bulletReady;
     }
         /**

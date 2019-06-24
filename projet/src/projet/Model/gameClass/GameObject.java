@@ -2,13 +2,18 @@ package projet.Model.gameClass;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-
+/* Cette classe est la classe permettant de gérer tous les objets visibles pour l'utilisateurs
+    - Elle possède un attribut sprite qui gère l'image de l'objet
+    - les attributs x,y,width et height permettent de définir la position de l'objet ainsi que sa taille.
+    - loadImage renvoie une image à partir du sprite, elle est appelée par les fonctions draw dans le playgroundArea
+    - la classe possède deux constructeurs afin de ne pas avoir à définir la taille ou la hauteur dans le constructeur de chaque classe.
+*/
 public abstract class GameObject {
     private ImageIcon sprite;
     private double x;
     private double y;
     double width;
-    double heigth;
+    double height;
     
     public GameObject(double x, double y,ImageIcon sprite) {
         this.x = x;
@@ -21,7 +26,7 @@ public abstract class GameObject {
         this.x = x;
         this.y = y;
         this.width = width;
-        this.heigth = heigth;
+        this.height = heigth;
     }
     
 
@@ -75,16 +80,16 @@ public abstract class GameObject {
     }
 
     /**
-     * @return the heigth
+     * @return the height
      */
-    public double getHeigth() {
-        return heigth;
+    public double getHeight() {
+        return height;
     }
 
     /**
-     * @param heigth the heigth to set
+     * @param height the height to set
      */
-    public void setHeigth(double heigth) {
-        this.heigth = heigth;
+    public void setHeight(double height) {
+        this.height = height;
     }
 }

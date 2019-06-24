@@ -11,6 +11,13 @@ import javax.swing.ImageIcon;
  *
  * @author mallou
  */
+
+/* Cette classe est la classe missile. Elle définit des objets visibles et déplacables.
+    - Elle possède un attribut shooter qui contient l'objet qui lance le missile.
+    - La fonction onCollision permet de reinitialiser les paramètres de missile du tireur.
+    - La fonction move est redéfinie car celle présente dans dynamic object ne permet que de se déplacer de gauche à droite.
+            * Cette fonction permet au missible d'aller soit vers le haut soit vers le bas selon qui le tire.
+*/
 public class Bullet extends DynamicGameObject{
 
 
@@ -21,7 +28,6 @@ public class Bullet extends DynamicGameObject{
         this.shooter = shooter;
     }
 
-    @Override
     public void onCollision(){
         this.getShooter().setBullet(null);
         this.getShooter().setBulletReady(true);

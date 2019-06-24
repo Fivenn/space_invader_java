@@ -7,8 +7,14 @@ package projet.Model.gameClass;
 
 import javax.swing.ImageIcon;
 
+/* Cette classe est la classe permettant de gérer tous les objets pouvant se déplacer. 
+    - Elle est fille de la classe gameObject car tous les objets gérés par cette classe sont visibles.
+    - Elle possède un attribut speed qui définit la vitesse de l'objet.
+    - La fonction move permet de modifier les coordonnées de l'objet selon si il va à droite ou à gauche.
+    - La classe possède deux constructeurs afin de ne pas avoir à définir la taille ou la hauteur dans le constructeur de chaque classe.
+*/
 
-public class DynamicGameObject extends GameObject {
+public abstract class DynamicGameObject extends GameObject {
     private int speed;
 
     public DynamicGameObject(double x, double y, int speed,ImageIcon sprite) {
@@ -29,10 +35,6 @@ public class DynamicGameObject extends GameObject {
             if(getX()<850)setX(getX() + getSpeed());
         }
     }
-    
-    public void onCollision(){
-    }
-    
 
     /**
      * @return the speed

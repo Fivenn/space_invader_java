@@ -245,7 +245,7 @@ public class GameController extends Observable implements ActionListener{
         if(this.spaceShip.getBullet()!=null){
             this.getSpaceShip().getBullet().setSprite(imageIcon);
             this.getSpaceShip().getBullet().setWidth(width);
-            this.getSpaceShip().getBullet().setHeigth(height);
+            this.getSpaceShip().getBullet().setHeight(height);
         }
         this.notifier();
         

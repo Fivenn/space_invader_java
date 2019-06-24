@@ -11,6 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author mallou
  */
+
+/* Cette classe est la classe Vaisseau. Elle définit des objets visibles, déplacables pouvant tirer.
+    - La fonction shoot redéfinit celle que touchableObject et permet de tirer en définissant les attributs de la bullet.
+    - La fonction possède des attributs de la classe bullet afin de pouvoir les personnaliser.
+*/
+
 public class SpaceShip extends TouchableGameObject{
     private ImageIcon bulletIcon;
     private int widthBullet;
