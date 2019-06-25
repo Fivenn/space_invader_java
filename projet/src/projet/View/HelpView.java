@@ -21,7 +21,10 @@ public class HelpView extends JFrame {
         /* Initialisation des variables et utiles à cette vue */
         this.gameController = gameController;
         this.infoView = infoView;
-
+        String rules = "<html><h1>Règle du jeu</h1>" +
+                "<p align='justify'>   Piou-piou est un shoot'em up dans lequel vous contrôlez un poulet possédant 3 points de vie et pouvant tirer des oeufs. Les spacefox descendent dans la zone et rapportent 10 points. Les vaisseaux spacefox rapportent 100 points et possèdent 3 points de vie. Lorsque tous les spacefox sont éliminés, une nouvelle vague apparaït. Lorsque le poulet meurt ou que les spacefox atteignent le bas de l'écran, ils ont réussi l'invasion et vous perdez alors la partie.<br><br></p>" +
+                "<p align='justify'>    Appuyez sur Espace pour tirer. Utilisez les flèches de gauche et de droite pour diriger le poulet. Appuyez sur Nouvelle partie pour rejouer. Appuyez sur P pour mettre en pause.</p><" +
+                "<h1>Personnalisation</h1></html>";
         this.setTitle("Help and Options");
         this.setSize(300, 700);
         this.setLayout(new BorderLayout());
@@ -29,8 +32,11 @@ public class HelpView extends JFrame {
         this.setLocationRelativeTo(this.infoView);
 
         /* Création et configuration des objets graphiques */
-        JLabel helpLabel = new JLabel("Help and Options");
+        JLabel helpLabel = new JLabel(rules);
         helpLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        helpLabel.setPreferredSize(new Dimension(290, 350));
+        helpLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
         JButton backButton = new JButton("Close");
         backButton.setBackground(Color.BLACK);
         backButton.setForeground(Color.WHITE);
@@ -47,8 +53,7 @@ public class HelpView extends JFrame {
         this.add(helpLabel,BorderLayout.NORTH);
         this.add(createPanelCustom(),BorderLayout.CENTER);
         this.add(backButton,BorderLayout.SOUTH);
-        
-        
+
         this.setResizable(false);
         this.pack();
     }
@@ -80,7 +85,7 @@ public class HelpView extends JFrame {
         
         p.add(customCheck,BorderLayout.NORTH);
         
-        JPanel customVariables = new JPanel(new GridLayout(4,2));
+        JPanel customVariables = new JPanel(new GridLayout(5,2));
         customVariables.add(new JLabel("Aliens fire rate : "));
         
         JTextField aliensFireRate = new JTextField(String.valueOf(gameController.getNbChancesBulletAlien()));
@@ -171,7 +176,7 @@ public class HelpView extends JFrame {
         customVariables.add(aliensPerColumn);      
         
         customVariables.add(new JLabel("Aliens speed : "));
-        
+
         JTextField aliensSpeed = new JTextField(String.valueOf(gameController.getAlienSpeed()));
         /* Écoute et modifie la vitesse des aliens */
         aliensSpeed.addKeyListener(new KeyListener() {
@@ -194,9 +199,29 @@ public class HelpView extends JFrame {
                 }
             }
         });
+
         customVariables.add(aliensSpeed);
-        
+        customVariables.add(new JLabel("Pseudo : "));
+
+        JTextField pseudo = new JTextField(String.valueOf(gameController.getPlayer().getPseudo()));
+        /* Écoute et modifie le pseudo */
+        pseudo.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent arg0) {}
+
+            @Override
+            public void keyPressed(KeyEvent arg0) {}
+
+            @Override
+            public void keyReleased(KeyEvent arg0) {
+                gameController.setPseudo(pseudo.getText());
+            }
+        });
+
+        customVariables.add(pseudo);
         p.add(customVariables,BorderLayout.CENTER);
+
+
         return p;
     }
 

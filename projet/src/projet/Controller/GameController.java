@@ -44,7 +44,7 @@ public class GameController extends Observable implements ActionListener{
     private int nbAliensColonnes = 2; //Le nombre d'aliens par colonne
     private final int nbBuilding = 4; // Le nombre de batiments 
     private int nbChancesBulletAlien = 2500; // Le nombre de chances qu'a un alien de tirer. Plus le nombre est petit, plus la chance est grande.
-    private int nbChancesSpawnVaisseau = 10000; // Le nombre de chances qu'a un vaisseau alien d'apparaître. Plus le nombre est petit, plus la chance est grande. Lorsqu'un vaisseau alien est sur l'écran, le nombre passe à zéro car il ne peut y en avoir deux en même temps.
+    private int nbChancesSpawnVaisseau = 100; // Le nombre de chances qu'a un vaisseau alien d'apparaître. Plus le nombre est petit, plus la chance est grande. Lorsqu'un vaisseau alien est sur l'écran, le nombre passe à zéro car il ne peut y en avoir deux en même temps.
     private int alienSpeed = 1;//La vitesse des aliens, plus le nombre est grand, plus la vitesse est élevée.
     
     /*Deux images plus facilement stockées ici par soucis de facilité lors du chnagement dans les préférences.*/
@@ -283,8 +283,7 @@ public class GameController extends Observable implements ActionListener{
             this.getSpaceShip().getBullet().setWidth(width);
             this.getSpaceShip().getBullet().setHeight(height);
         }
-        this.notifier(); 
-        
+        this.notifier();
     }
     /* Cette fonction sert à modifier l'image des aliens lorsque désiré par l'utilisateur */
     public void setAliensSprite(ImageIcon imageIcon){
@@ -295,6 +294,11 @@ public class GameController extends Observable implements ActionListener{
             }
         }
         this.notifier();
+    }
+    /* Cette fonction sert à modifier le pseudo du joueur lorsque désiré par l'utilisateur */
+    public void setPseudo(String pseudo) {
+        this.getPlayer().setPseudo(pseudo);
+
     }
     
     /**

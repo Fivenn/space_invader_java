@@ -14,6 +14,7 @@ public class InformationGameAreaView extends JPanel implements Observer {
     private String pseudo; // Pseudo du joueur
     private JLabel lifeLabel; // Label représentant la vie du joueur
     private JLabel scoreLabel; // Label représentant le score du joueur
+    private JLabel pseudoPlayerLabel;
 
     /* Classe définissant la vue d'information sur la partie (présent au dessus du plateau de jeu) */
     public InformationGameAreaView(GameController gameController) {
@@ -32,7 +33,7 @@ public class InformationGameAreaView extends JPanel implements Observer {
 
         scoreLabel = new JLabel("Score: "+points);
         lifeLabel = new JLabel("Life: "+lifePoints);
-        JLabel pseudoPlayerLabel = new JLabel(pseudo);
+        pseudoPlayerLabel = new JLabel(pseudo);
 
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(30f));
@@ -60,6 +61,11 @@ public class InformationGameAreaView extends JPanel implements Observer {
         scoreLabel.setText("Score: "+this.points);
     }
 
+    public void updatePseudo() {
+        pseudo = this.gameController.getPlayer().getPseudo();
+        pseudoPlayerLabel.setText(this.pseudo);
+    }
+
     @Override
     /* Fonction permettant d'actualiser les points de vie et le score d'un joueur quand on reçoit une
     * notification de l'observable (GameController).
@@ -67,5 +73,6 @@ public class InformationGameAreaView extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
         updateLifePoints();
         updateScore();
+        updatePseudo();
     }
 }
