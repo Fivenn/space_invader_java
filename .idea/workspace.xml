@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="space_invaders_project:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="19e7699a-73fb-414b-8c5d-d8dffdf476df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/space_invaders_project_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/HelpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/HelpView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_space_invaders/Rapport Space Invaders - Maëlle Heyrendt - Nicolas Sueur.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_space_invaders/Space Invaders.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/HelpView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="485">
-              <caret line="230" column="8" lean-forward="true" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+              <caret line="230" column="8" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#9788#9789#0" expanded="true" />
@@ -60,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+            <state relative-caret-position="9">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#14251#14252#0" expanded="true" />
@@ -126,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="492">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,10 +211,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="850" />
+    <option name="width" value="830" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -279,7 +285,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -345,18 +351,18 @@
       <workItem from="1561109618482" duration="16803000" />
       <workItem from="1561222823822" duration="6347000" />
       <workItem from="1561442835739" duration="34000" />
-      <workItem from="1561473100304" duration="4540000" />
+      <workItem from="1561473100304" duration="5088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75051000" />
+    <option name="totallyTimeSpent" value="75599000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="850" y="0" width="830" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13431014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27918783" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -365,7 +371,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21497326" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20510204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26096258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -597,7 +603,7 @@
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/InformationGameAreaView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -607,7 +613,7 @@
     <entry file="file://$PROJECT_DIR$/projet/src/projet/View/HelpView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
-          <caret line="230" column="8" lean-forward="true" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+          <caret line="230" column="8" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#9788#9789#0" expanded="true" />
@@ -618,8 +624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/projet/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+        <state relative-caret-position="9">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#14251#14252#0" expanded="true" />
@@ -646,10 +652,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>space_invaders_project:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
